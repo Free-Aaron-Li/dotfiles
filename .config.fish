@@ -1,0 +1,1 @@
+/home/aaron/.config/fish/config.fish
