@@ -125,4 +125,8 @@ let g:ctrlp_user_command = 'find %s -type f'        " MacOSX/Linux
 
 " Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+"
+nnoremap <A-j> <ESC><CR>
+inoremap <A-j> <ESC><CR>
 "-----------------end--------------------
