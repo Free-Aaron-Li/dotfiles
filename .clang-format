@@ -1,7 +1,8 @@
 ---
 # 命名规范
 # - 类名/接口名采用帕斯卡命名方式
-# - 函数名/变量名采用下划线命名方式
+# - 函数名采用驼峰命名方式
+# - 变量名采用下划线命名方式
 # - 常量采用常量命名方式
 # 建议使用clang-format 14及以上版本，否则存在某些配置不生效情况！！！
 # clang-format 13 or later is recommended. Otherwise, some configurations may not take effect!!
