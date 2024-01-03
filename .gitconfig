@@ -1,13 +1,12 @@
 [user]
-	email = 95997167+Free-Aaron-Li@users.noreply.github.com
-	name = aaron
+	email = 95997167+Free-Aaron-Li@users.noreply.github.com  # 邮箱
+	name = aaron # 姓名
 [push]
 	default = matching
 [core]
 	quotepath = false
-	editor = vim
-[core]
-    pager = delta
+	editor = nvim # git commit 编辑工具
+    pager = delta # 替代git diff 对比显示工具
 
 [interactive]
     diffFilter = delta --color-only
