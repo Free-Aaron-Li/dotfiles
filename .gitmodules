@@ -1,3 +1,6 @@
 [submodule ".vim/pack/plugins/start/vim-wakatime"]
 	path = .vim/pack/plugins/start/vim-wakatime
 	url = git@github.com:wakatime/vim-wakatime
+[submodule ".vim/pack/themes/start/dracula"]
+	path = .vim/pack/themes/start/dracula
+	url = git@github.com:dracula/vim
