@@ -1,5 +1,7 @@
 function fish_greeting
     set -U fish_greeting
+	# fish主题选择
+	fish_config theme choose "Dracula Official"
     # 在fish shell下使用vi模式绑定
     set fish_plugins autojump vi-mode
     #-------------------------------------
