@@ -1,7 +1,7 @@
 function fish_greeting
     set -U fish_greeting
-	# fish主题选择
-	fish_config theme choose "Dracula Official"
+    # fish主题选择
+    fish_config theme choose "Dracula Official"
     # 在fish shell下使用vi模式绑定
     set fish_plugins autojump vi-mode
     #-------------------------------------
@@ -24,8 +24,10 @@ function fish_greeting
     alias del='trash-put'
     # 对mv操作添加“是否覆盖”提示
     alias mv='mv -i'
-	# 对git commit规范程序进行命令简化
-	alias commit='npx cz-customizable'
+    # 对git commit规范程序进行命令简化
+    alias commit='npx cz-customizable'
+    # 拍照
+    alias Cheese='ffmpeg -i /dev/video0 -frames 1  -r 1  -f image2 image.jpg'
     #-------------------------------------
     # 函数
     function web_on
