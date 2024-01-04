@@ -129,4 +129,12 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 "
 nnoremap <A-j> <ESC><CR>
 inoremap <A-j> <ESC><CR>
+
+" themes
+" dracula
+if v:version < 802
+    packadd! dracula
+endif
+syntax enable
+colorscheme dracula
 "-----------------end--------------------
