@@ -1,0 +1,3 @@
+[submodule ".vim/pack/plugins/start/vim-wakatime"]
+	path = .vim/pack/plugins/start/vim-wakatime
+	url = git@github.com:wakatime/vim-wakatime

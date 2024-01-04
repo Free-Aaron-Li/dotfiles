@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/aaron/Source/Shell'
+let g:netrw_dirhist_6='/etc/apt/trusted.gpg.d'
+let g:netrw_dirhist_5='/home/aaron/Downloads/test'
+let g:netrw_dirhist_4='/home/aaron/Software/scilab/share/locale/zh_CN/LC_MESSAGES'
+let g:netrw_dirhist_3='/home/aaron/.local/share/fcitx5/themes/星空黑'
+let g:netrw_dirhist_2='/home/aaron/.local/share/fcitx5/themes/dracula'
+let g:netrw_dirhist_1='/home/aaron/Source/Kotlin_workspace/.git'
