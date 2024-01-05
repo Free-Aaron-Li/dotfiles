@@ -5,7 +5,7 @@
 	default = matching
 [core]
 	quotepath = false
-	editor = nvim # git commit 编辑工具
+	editor = vim # git commit 编辑工具
     pager = delta # 替代git diff 对比显示工具
 
 [interactive]
