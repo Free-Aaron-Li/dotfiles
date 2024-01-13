@@ -20,6 +20,6 @@ local opt = {noremap = true, silent = true}
 
 
 -- 退出
-map('n','<A-j>','<ESC>',opt)
-map('i','<A-j>','<ESC>',opt)
-map('v','<A-j>','<ESC>',opt)
+map('n','<S-j>','<ESC>',opt)
+map('i','<S-j>','<ESC>',opt)
+map('v','<S-j>','<ESC>',opt)
