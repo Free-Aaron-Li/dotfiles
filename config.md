@@ -69,6 +69,10 @@
             > 复制到/usr/share/icons 查询地址（https://www.gnome-look.org/）
 3. 字体
 	1. JetbrainsMono NerdFont（https://github.com/ryanoasis/nerd-fonts/releases）
+	2. 思源宋体：https://github.com/adobe-fonts/source-han-serif/releases/
+	3. 思源黑体：https://github.com/adobe-fonts/source-han-sans/releases/
+	4. 新罗马字体：https://www.fontles.com/times-new-roman-font-free-download/
+	
 ### 九、用户
 
 1. 修改头像图标、名字
