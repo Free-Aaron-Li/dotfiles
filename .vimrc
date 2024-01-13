@@ -142,9 +142,9 @@ nmap Q <Nop>
 """ Leader
 let mapleader = "\<space>"
 """ ESC
-inoremap <m-;> <esc>
-nnoremap <m-;> <esc>
-vnoremap <m-;> <esc>
+inoremap <S-j> <esc>
+nnoremap <S-j> <esc>
+vnoremap <S-j> <esc>
 
 
 
