@@ -20,6 +20,10 @@ local opt = {noremap = true, silent = true}
 
 
 -- 退出
-map('n','<S-j>','<ESC>',opt)
-map('i','<S-j>','<ESC>',opt)
-map('v','<S-j>','<ESC>',opt)
+map('n','<A-j>','<ESC>',opt)
+map('i','<A-j>','<ESC>',opt)
+map('v','<A-j>','<ESC>',opt)
+
+-- 代码移动
+map('v','<S-j>',":m '>+1<CR>gv=gv",opt)
+map('v','<S-k>',":m '<-2<CR>gv=gc",opt)
