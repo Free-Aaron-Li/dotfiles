@@ -45,8 +45,8 @@ set surround
 "------ 1. 映射 ------
 "1、终极映射
 nnoremap <leader>; :
-inoremap <A-;> <Esc>
-vnoremap <A-;> <Esc>
+inoremap <A-j> <Esc>
+vnoremap <A-j> <Esc>
 "2、空行
 nnoremap <CR> 4o<Esc>
 "3、方块移动
