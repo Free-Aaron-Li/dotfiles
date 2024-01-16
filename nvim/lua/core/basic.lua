@@ -93,3 +93,8 @@ vim.o.pumheight = 10
 vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = false
+-- 外观
+vim.o.termguicolors=true
+-- vim.o.signcolumn=true
+-- 系统剪切板
+-- vim.o.clipboard:append("unnamedplus")

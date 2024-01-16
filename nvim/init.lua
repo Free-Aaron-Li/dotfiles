@@ -1,8 +1,9 @@
 -- 基本配置
-require('basic')
+require("core.basic")
 -- 快捷键
-require('keybindings')
+require("core.keybindings")
 -- lazy.nvim
 require("lazynvim-init")
 -- 主题
-require("theme")
+require("core.theme")
+
