@@ -5,6 +5,7 @@ function fish_greeting
     # 在fish shell下使用vi模式绑定
     set fish_plugins autojump vi-mode
     #-------------------------------------
+	# 环境
     # 添加aaron下的可执行环境
     set -x PATH /home/aaron/.local/bin $PATH
     # java 环境	
@@ -19,7 +20,9 @@ function fish_greeting
     # set -x PATH /home/aaron/Software/conda/Miniconda3/bin $PATH
     # git filter-repo 环境
     set -x PATH /home/aaron/Software/git-filter-repo $PATH
+	export BAT_CONFIG_PATH="/home/aaron/.dotfiles/bat.conf"
     #-------------------------------------
+	# 别名
     # 删除操作
     alias del='trash-put'
     # 对mv操作添加“是否覆盖”提示
