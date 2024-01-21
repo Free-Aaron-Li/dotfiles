@@ -1,0 +1,4 @@
+" key Remapping
+
+imap jk <Esc>
+nmap <leader+f> 'actions:find'
