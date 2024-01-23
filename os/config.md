@@ -272,6 +272,10 @@
 33. navicat
 	> rm -rf ~/.config/navicat
        > rm -rf ~/.config/dconf/user
+34. listen1
+    1. 下载（https://github.com/listen1/listen1_desktop/releases/）
+35. Vivaldi
+    1. 下载（https://vivaldi.com/zh-hans/)
 
 ## 终端
 
