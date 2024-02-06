@@ -135,6 +135,7 @@ nmap <leader>da :action KJumpAction.Line<CR>
 
 
 "------ 8. normal模式下和insert模式下输入法的自动切换 ------
+" set keep-english-in-normal[-and-restore-in-insert]
 " 需要使用到插件“IdeaVimExtension”
 " set keep-english-in-normal[-and-restore-in-insert]
 " set nokeep-english-in-normal-and-restore-in-insert
