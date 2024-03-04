@@ -6,4 +6,5 @@ require("core.keybindings")
 require("lazynvim-init")
 -- 主题
 require("core.theme")
-
+-- neovide
+require("core.neovide")
