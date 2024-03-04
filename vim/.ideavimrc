@@ -69,7 +69,7 @@ nnoremap <leader>nh :nohlsearch<CR>
 
 
 "------ 3. 快速移动 ------
-nnoremap <Leader>mj 10j
+nnoremap <Leader>j 10j
 nnoremap <Leader>k 10k
 nnoremap <Leader>; 15h
 nnoremap <Leader>' 15l
