@@ -3,7 +3,7 @@ function fish_greeting
     # fish主题选择
     fish_config theme choose "Dracula Official"
     # 在fish shell下使用vi模式绑定
-    set fish_plugins autojump vi-mode
+	fish_vi_key_bindings
     #-------------------------------------
 	# 环境
     # 添加aaron下的可执行环境
@@ -31,6 +31,8 @@ function fish_greeting
     alias commit='npx cz-customizable'
     # 拍照
     alias Cheese='ffmpeg -i /dev/video0 -frames 1  -r 1  -f image2 image.jpg'
+	# neovide别名
+	alias nv="neovide"
     #-------------------------------------
     # 函数
     function web_on
