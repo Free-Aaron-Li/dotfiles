@@ -22,14 +22,14 @@ vim.wo.signcolumn = "yes"
 vim.wo.colorcolumn = "120"
 
 -- 缩进
--- 缩进4个空格等于一个Tab
-vim.o.tabstop = 4
-vim.bo.tabstop = 4
-vim.o.softtabstop = 4
+-- 缩进2个空格等于一个Tab
+vim.o.tabstop = 2
+vim.bo.tabstop = 2
+vim.o.softtabstop = 2
 vim.o.shiftround = true
 -- >> << 缩进
-vim.o.shiftwidth = 4
-vim.bo.shiftwidth = 4
+vim.o.shiftwidth = 2
+vim.bo.shiftwidth = 2
 -- 空格替代tab
 vim.o.expandtab = false
 vim.bo.expandtab = false
@@ -106,4 +106,5 @@ vim.wo.signcolumn="yes"
 vim.o.list=false
 vim.o.listchars="space:·"
 -- 系统剪切板
--- vim.o.clipboard:append("unnamedplus")
+-- 需要xclip软件
+vim.o.clipboard="unnamedplus"
