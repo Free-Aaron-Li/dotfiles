@@ -58,6 +58,7 @@ vim.wo.wrap = false
 -- 光标在行首尾时<Left><Right>可以跳到下一行
 vim.o.whichwrap = '<,>,[,]'
 -- 允许隐藏被修改过的buffer
+-- 解决必须强制保存当前buffer后才允许切换到其他buffer
 vim.o.hidden = true
 -- 鼠标支持
 vim.o.mouse = "a"
@@ -75,6 +76,7 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 -- 自动补全不自动选中
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
+
 -- 样式
 vim.o.background = "dark"
 vim.o.termguicolors = true
@@ -90,11 +92,18 @@ vim.o.shortmess = vim.o.shortmess .. 'c'
 -- 补全最多显示行数
 vim.o.pumheight = 10
 -- 永远显示 tabline
+-- 表示永远显示tabline，后面也有对应的tabline插件
 vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = false
+
 -- 外观
 vim.o.termguicolors=true
--- vim.o.signcolumn=true
+-- 在左侧留一行
+-- 用于字符显示
+vim.wo.signcolumn="yes"
+-- 空格显示
+vim.o.list=false
+vim.o.listchars="space:·"
 -- 系统剪切板
 -- vim.o.clipboard:append("unnamedplus")
