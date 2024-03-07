@@ -4,7 +4,6 @@ return{
 		"lukas-reineke/headlines.nvim",
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
-			run = ":TSInstall all"
 		},
 		config = true,
 	},

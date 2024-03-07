@@ -16,6 +16,8 @@ return{
 			vim.g.nord_borders = true
 			-- 彩色背景，在diff模式下启用/禁止彩色背景
 			vim.g.nord_uniform_diff_background = true
+			-- 斜体
+			vim.g.nord_italic = false
 
 		require("headlines").setup({
 			markdown = {
