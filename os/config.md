@@ -40,7 +40,7 @@
 1. 全局选项->向前/向后切换输入法（Shift）
 2. 输入法管理->键盘-英语（美国）--- 拼音
 3. 设置输入法皮肤
-	1. 存储位置 /home/aaron/.local/share/fcitx5/themes
+	1. 存储位置 ~/.local/share/fcitx5/themes
 	2. 设置皮肤为Material-Color-Teal
 		1. mkdir -p ~/.local/share/fcitx5/themes/Material-Color
 		2. git clone https://github.com/hosxy/Fcitx5-Material-Color.git ~/.local/share/fcitx5/themes/Material-Color
@@ -259,8 +259,8 @@
 	> swrast_dri.so -> /usr/lib/x86_64-linux-gnu/dri/swrast_dri.so
 	> zink_dri.so -> /usr/lib/x86_64-linux-gnu/dri/zink_dri.so
 	> 修改matlab中libstdc++.so.6的软路由
-	> libstdc++.so.6 来自于/usr/lib/x86_64-linux-gnu，复制到/home/aaron/Software/matlab/R2023b/sys/os/glnxa64下并修改软路由：
-	> libstdc++.so.6 -> /home/aaron/Software/matlab/R2023b/sys/os/glnxa64/libstdc++.so.6.0.29
+	> libstdc++.so.6 来自于/usr/lib/x86_64-linux-gnu，复制到~/Software/matlab/R2023b/sys/os/glnxa64下并修改软路由：
+	> libstdc++.so.6 -> ~/Software/matlab/R2023b/sys/os/glnxa64/libstdc++.so.6.0.29
 29. annepro2键盘配置软件
     1. 下载（https://www.hexcore.xyz/zh/obinskit）
 30. Strtchly 视觉抗疲劳
@@ -298,7 +298,7 @@
 		2. exa，替代ls
 			1. 安装（https://github.com/ogham/exa/releases/）
 			2. 命令（cp ./exa ~/.local/bin）
-                > 如果没有则创建~/.local/bin，并将其设置配置路径（bashrc下为：export PATH=/home/aaron/.local/bin:$PATH）
+                > 如果没有则创建~/.local/bin，并将其设置配置路径（bashrc下为：export PATH=~/.local/bin:$PATH）
 			3. man手册安装，将man文件夹下的文件复制到/usr/share/man目录下的对应manX中。
 		3. trash-cli，替代rm
 			1. 安装（sudo pip install trash-cli），需要V23具有pip，具体可见下方安装pip3
@@ -414,7 +414,7 @@
 1. java
 	1. 下载（https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html）
     2. 配置
-        > set -x PATH /home/aaron/language/jdk/bin/ $PATH
+        > set -x PATH ~/language/jdk/bin/ $PATH
  
 
 ## 虚拟机
@@ -435,22 +435,24 @@ useradd -g mysql mysql
 chown -R mysql:mysql /usr/local/mysql/
 cd bin/
 ./mysqld --user=mysql --basedir=/usr/local/mysql --datadir=/usr/local/mysql/data --initialize
-cd support-files/
+aaron:
+cd ../support-files/
 sudo ./mysql.server start
-./mysql -u root -p
+../bin/mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+sudo ln -s /usr/local/mysql/bin/mysql /usr/local/bin/
 
-vi /home/aaron/.config/fish/config.fish 
+vi ~/.config/fish/config.fish 
 
     function web_on
     cd /usr/local/mysql/support-files/ && sudo ./mysql.server start
-    cd /home/aaron/environment/apache-tomcat-9.0.80/bin/ && ./startup.sh 
+    cd ~/environment/apache-tomcat-9.0.80/bin/ && ./startup.sh 
     echo -e "web服务已启动"
     end
 
     function web_off
     cd /usr/local/mysql/support-files/ && sudo ./mysql.server stop
-    cd /home/aaron/environment/apache-tomcat-9.0.80/bin/ && ./shutdown.sh 
+    cd ~/environment/apache-tomcat-9.0.80/bin/ && ./shutdown.sh 
     echo -e "web服务已关闭"
     end
 
