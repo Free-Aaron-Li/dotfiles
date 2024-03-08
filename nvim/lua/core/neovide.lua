@@ -26,9 +26,9 @@ if vim.g.neovide then
   -- }
   vim.o.guifont = "Monaspace Argon"
 	-- 2. 行间距 
-	vim.o.linespace = 2	
+	vim.o.linespace = 0
 	-- 3. Scale
-	-- vim.g.neovide_scale_factor = 1.0
+	vim.g.neovide_scale_factor = 1.0
 	-- 4. 窗口边框
 	-- 由背景色填充
 	vim.g.neovide_padding_top = 0
