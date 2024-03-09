@@ -3,9 +3,10 @@ return{
 		'tanvirtin/vgit.nvim',
 	  dependencies={
 			'nvim-lua/plenary.nvim',
+			'nvim-tree/nvim-web-devicons',
 		},
 		config=function()
-			require('vgit').setup({
+			require('vgit').setup({	
 				settings={
 					live_blame={
 						enabled=false,

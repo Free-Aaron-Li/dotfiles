@@ -7,24 +7,8 @@ if vim.g.neovide then
 	-- 参考：https://neovide.dev/
 	--------
 	
-	-- 1. 字体  
-	--
-  -- vim.g.neovide_font_settings = { 
-	-- 		features = {
-	-- 			"ss01",
-	-- 			"ss02",
-	-- 			"ss03",
-	-- 			"ss04",
-	-- 			"ss05",
-	-- 			"ss06",
-	-- 			"ss07",
-	-- 			"ss08",
-	-- 			"dlig",
-	-- 			"calt",
-	-- 		}
-	-- 	},
-  -- }
-  vim.o.guifont = "Monaspace Argon"
+	-- 1. 字体
+  vim.o.guifont = "JetBrains Mono,Noto Color Emoji,LXGW WenKai:h14"
 	-- 2. 行间距 
 	vim.o.linespace = 0
 	-- 3. Scale
