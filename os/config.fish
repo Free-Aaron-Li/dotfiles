@@ -5,7 +5,7 @@ function fish_greeting
     # 在fish shell下使用vi模式绑定
 	fish_vi_key_bindings
     #-------------------------------------
-	# 环境
+	  # 环境
     # 添加aaron下的可执行环境
     set -x PATH /home/aaron/.local/bin $PATH
     # java 环境	
@@ -20,9 +20,9 @@ function fish_greeting
     # set -x PATH /home/aaron/Software/conda/Miniconda3/bin $PATH
     # git filter-repo 环境
     set -x PATH /home/aaron/Software/git-filter-repo $PATH
-	export BAT_CONFIG_PATH="/home/aaron/.dotfiles/bat.conf"
+	  export BAT_CONFIG_PATH="/home/aaron/.dotfiles/bat.conf"
     #-------------------------------------
-	# 别名
+	  # 别名
     # 删除操作
     alias del='trash-put'
     # 对mv操作添加“是否覆盖”提示
@@ -31,8 +31,8 @@ function fish_greeting
     alias commit='npx cz-customizable'
     # 拍照
     alias Cheese='ffmpeg -i /dev/video0 -frames 1  -r 1  -f image2 image.jpg'
-	# neovide别名
-	alias nv="neovide"
+	  # neovide别名
+	  alias nv="neovide"
     #-------------------------------------
     # 函数
     function web_on
