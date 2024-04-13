@@ -141,10 +141,10 @@ nmap <leader>da :action KJumpAction.Line<CR>
 " set nokeep-english-in-normal-and-restore-in-insert
 " set keep-english-in-normal-and-restore-in-insert
 " 在normal模式保持英文状态
-set keep-english-in-normal
+" set keep-english-in-normal
 " 在normal模式保持英文状态,并在回到insert时恢复输入法到原来的状态.
 " 例如,编写一段中文注释,用中文输入法写了一段文字,进入normal模式移动光标到下一行,再回到插入模式继续使用中文编辑.
-" set keep-english-in-normal-and-restore-in-insert
+set keep-english-in-normal-and-restore-in-insert
 
 "------ 9. 打开帮助文档 ------
 nnoremap <leader>hp :e /home/aaronLi/Documents/markdown文档/ideavim配置文件.md<CR>
