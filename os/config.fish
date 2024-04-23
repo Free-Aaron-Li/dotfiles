@@ -1,10 +1,11 @@
 function fish_greeting
+    # 启动项
     # 关闭shell启动语句
     set -U fish_greeting
-    # bat主题选择
-    set -x BAT_THEME Coldark-Cold
     # 在fish shell下使用vi模式绑定
 	  fish_vi_key_bindings
+    # bat主题选择
+    set -x BAT_THEME Coldark-Cold
     #-------------------------------------
 	  # 环境
     # 添加aaron下的可执行环境

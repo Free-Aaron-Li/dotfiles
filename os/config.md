@@ -301,7 +301,8 @@
                 > 如果没有则创建~/.local/bin，并将其设置配置路径（bashrc下为：export PATH=~/.local/bin:$PATH）
 			3. man手册安装，将man文件夹下的文件复制到/usr/share/man目录下的对应manX中。
 		3. trash-cli，替代rm
-			1. 安装（sudo pip install trash-cli），需要V23具有pip，具体可见下方安装pip3
+			1. 安装（sudo pipx install trash-cli），需要V23具有pip，具体可见下方安装pip3
+			1.1 sudo apt install pipx
 			2. 使用命令
 				1. 文档（https://github.com/andreafrancia/trash-cli/blob/master/README_zh-CN.rst）
 				2. 简单归纳：

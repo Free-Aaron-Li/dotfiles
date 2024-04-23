@@ -80,7 +80,7 @@ vim.o.splitright = true
 vim.g.completeopt = {"menuone","noselect"}
 
 -- 样式
-vim.o.background = "dark"
+vim.o.background = "light"
 vim.o.termguicolors = true
 -- 不可见字符的显示
 vim.o.list = false
