@@ -8,7 +8,7 @@ return {
         config = function()
 					require('lualine').setup({
 						options={
-							theme = 'nord',
+							theme = 'solarized', -- nord,solarized,
 							component_separators = { left = "|", right = "|" },
 							-- https://github.com/ryanoasis/powerline-extra-symbols
 							section_separators = { left = " ", right = "" },

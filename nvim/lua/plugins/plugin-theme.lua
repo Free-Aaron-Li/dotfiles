@@ -1,10 +1,12 @@
 return{
 	{
+    -- 森林主题
 		"neanias/everforest-nvim",
 		version=false,
 		lazy=false,
 	}, 
 	{
+    -- 现代化主题
 		"shaunsingh/nord.nvim",
 		version="*",
 		lazy = false,
@@ -36,5 +38,11 @@ return{
 		})
 		end,
 	},
+  {
+    -- 纸张主题
+    'maxmx03/solarized.nvim',
+    lazy = false,
+    priority = 1000,
+  },
 } 
 
