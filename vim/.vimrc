@@ -155,9 +155,9 @@ vnoremap <M-j> <esc>
 " => PLugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """ Nord
-call plug#begin('~/.vim/plugged')
-Plug 'nordtheme/vim'
-call plug#end()
+"call plug#begin('~/.vim/plugged')
+"Plug 'nordtheme/vim'
+"call plug#end()
 
 
 
@@ -173,4 +173,4 @@ call plug#end()
 "colorscheme dracula
 
 """ Nord
-colorscheme nord
+"colorscheme nord

@@ -18,6 +18,9 @@ set relativenumber
 set ideajoin
 " 设置光标在insert模式下的样式
 set guicursor=i:ver10
+" 连通系统剪贴板
+set clipboard=unnamed
+set clipboard+=ideaput
 
 "------ plugin ------
 "1、nerdtree
@@ -103,14 +106,14 @@ nnoremap <leader>wl <C-w>l
 "vnoremap Y +y
 
 "------ 5. 跳转Tab ------
-nnoremap <C-l> gt
-nnoremap <C-h> gT
+nnoremap <A-l> gt
+nnoremap <A-h> gT
 
 "------ 6. vimrc文件 ------
 "1、编辑vimrc文件
 nnoremap <leader>ce :e ~/.ideavimrc<CR>
 "2、保存退出
-nnoremap wq :wq<CR>
+nnoremap <A-x> :wq<CR>
 "3、执行vimrc文件
 nnoremap <leader>cs :source ~/.ideavimrc<CR>
 "noremap <C-s> :action IdeaVim.ReloadVimRc.reload<CR>

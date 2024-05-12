@@ -117,3 +117,8 @@ vim.o.clipboard="unnamedplus"
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]
 vim.cmd [[set formatoptions-=cro]]
+
+-- 保存光标位置
+vim.cmd [[
+autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+]]

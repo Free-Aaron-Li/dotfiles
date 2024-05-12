@@ -22,7 +22,17 @@ function fish_greeting
     # set -x PATH /home/aaron/Software/conda/Miniconda3/bin $PATH
     # git filter-repo 环境
     set -x PATH /home/aaron/Software/git-filter-repo $PATH
+    # 添加bat配置环境
 	  export BAT_CONFIG_PATH="/home/aaron/.bat.conf"
+    # 添加nvim配置环境
+    set -x PATH /home/aaron/Software/nvim/bin $PATH
+    # 添加Qt6配置环境
+    set -x PATH /home/aaron/environment/Qt/6.7.0/gcc_64/bin $PATH
+    set -x PATH /home/aaron/environment/Qt/6.7.0/gcc_64/lib $PATH
+    set -x PATH /usr/lib/x86_64-linux-gnu $PATH
+    set -x PATH /usr/lib/qt6/bin $PATH
+    # Qt环境Debug
+    export QT_DEBUG_PLUGINS=1
     #-------------------------------------
 	  # 别名
     # 删除操作
