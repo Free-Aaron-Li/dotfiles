@@ -1,8 +1,6 @@
----
 # 命名规范
 # - 类名/接口名采用帕斯卡命名方式
-# - 函数名采用驼峰命名方式
-# - 变量名采用下划线命名方式，类变量以下划线开头
+# - 函数名/变量名采用下划线命名方式
 # - 常量采用常量命名方式
 # 建议使用clang-format 14及以上版本，否则存在某些配置不生效情况！！！
 # clang-format 13 or later is recommended. Otherwise, some configurations may not take effect!!
@@ -12,7 +10,7 @@ Language: Cpp
 # 访问说明符(public、private等)的偏移
 AccessModifierOffset: -3
 # 开括号(开圆括号、开尖括号、开方括号)后的对齐: Align, DontAlign, AlwaysBreak(总是在开括号后换行)
-AlignAfterOpenBracket: BlockIndent
+AlignAfterOpenBracket: AlwaysBreak
 # 连续宏定义时，对齐所有宏
 AlignConsecutiveMacros: AcrossComments
 # 连续赋值时，对齐所有等号
@@ -29,7 +27,7 @@ AllowShortBlocksOnASingleLine: Always
 # 允许短的case标签放在同一行
 AllowShortCaseLabelsOnASingleLine: true
 # 允许短的函数放在同一行: None, InlineOnly(定义在类中), Empty(空函数), Inline(定义在类中，空函数), All
-AllowShortFunctionsOnASingleLine: Inline
+AllowShortFunctionsOnASingleLine: All
 # 允许短的if语句保持在同一行
 AllowShortIfStatementsOnASingleLine: Never
 # 允许短的lambda语句保持在同一行
@@ -101,7 +99,7 @@ ConstructorInitializerAllOnOneLineOrOnePerLine: true
 # 构造函数的初始化列表的缩进宽度
 ConstructorInitializerIndentWidth: 4
 # 延续的行的缩进宽度
-ContinuationIndentWidth: 2
+ContinuationIndentWidth: 4
 # 去除C++11的列表初始化的大括号{后和}前的空格
 Cpp11BracedListStyle: true
 # 继承最常用的指针和引用的对齐方式

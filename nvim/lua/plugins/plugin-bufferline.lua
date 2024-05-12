@@ -8,16 +8,20 @@ return{
 		},
 		config=function()
 			vim.opt.termguicolors = true
-			local highlights = require("nord").bufferline.highlights({
+			--[[
+      local highlights = require("nord").bufferline.highlights({
 				italic = true,
 				bold = true,
-			})
+			}) 
+      --]]
 			require("bufferline").setup({
 				options={
 					separator_style = "thin",
+          --[[
           indicator = {
             style = 'underline',
           },
+          --]]
 					-- 关闭 Tab 的命令，这里使用 moll/vim-bbye 的 :Bdelete 命令
     			close_command = "Bdelete! %d",
     			right_mouse_command = "Bdelete! %d",
