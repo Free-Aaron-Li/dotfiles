@@ -81,10 +81,10 @@ map("n","<leader>wl","<C-w>l",opts)
 -- 需要bufferline插件
 --- 4.1 跳转至左侧buffer
 -- map("n","<C-h>","gT",opts)
-map("n", "<C-h>", ":BufferLineCyclePrev<CR>", opts)
+map("n", "<A-h>", ":BufferLineCyclePrev<CR>", opts)
 --- 4.2 跳转至右侧buffer
 -- map("n","<C-l>","gt",opts)
-map("n", "<C-l>", ":BufferLineCycleNext<CR>", opts)
+map("n", "<A-l>", ":BufferLineCycleNext<CR>", opts)
 
 -- 5. 关闭buffer
 --- 5.1 关闭当前buffer，且不打乱buffer布局

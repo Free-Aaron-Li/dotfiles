@@ -8,3 +8,7 @@ require("lazynvim-init")
 require("core.theme")
 -- neovide
 require("core.neovide")
+
+vim.g.neovide_fullscreen = true
+vim.g.neovide_fullscreen_optimize = false
+

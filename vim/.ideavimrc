@@ -1,6 +1,6 @@
 "---------------
 "Author:Aaron.Li
-"Version:ideaVim 1.10.3
+"Version:ideaVim 2.12.0
 "---------------
 "
 "
@@ -12,13 +12,9 @@ let mapleader=" "
 set number
 "3、相对行号
 set relativenumber
-"4、启用ideajoin
-" 具体查看：https://github.com/JetBrains/ideavim/wiki/ideajoin-examples
-" 简单来讲就是将多行转为单行显示
-set ideajoin
-" 设置光标在insert模式下的样式
+"4、设置光标在insert模式下的样式
 set guicursor=i:ver10
-" 连通系统剪贴板
+"5、连通系统剪贴板
 set clipboard=unnamed
 set clipboard+=ideaput
 
@@ -33,30 +29,49 @@ set NERDTree
 nnoremap <leader>pr :NERDTree<CR>
 "2、Quickscope
 "单行移动
-set quickscope
-let g:qs_primary_color = '#aa381e'
-let g:qs_secondary_color = '#ffffff'
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+"set quickscope
+"let g:qs_primary_color = '#aa381e'
+"let g:qs_secondary_color = '#ffffff'
+"let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+"let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 "3、surround
 Plug 'tpopevim-surround'
 set surround
-"Plug 'easymotion/vim-easymotion'
-"map <leader><leader>b <Plug>(easymotion-B)
-"map <leader><leader>w <Plug>(easymotion-W)
+"4、Plug 'easymotion/vim-easymotion'
+"let g:EasyMotion_override_acejump = 0
+"map <leader><leader>a <Plug>(easymotion-jumptoanywhere)
+"map <leader><leader>l <Plug>(easymotion-lineanywhere)
+"5、Acejump
+" Press `f` to activate AceJump
+map f <Action>(AceAction)
+" Press `F` to activate Target Mode
+map F <Action>(AceTargetAction)
+" Press `g` to activate Line Mode
+"map g <Action>(AceLineAction)
+"6、启用ideajoin
+" 具体查看：https://github.com/JetBrains/ideavim/wiki/ideajoin-examples
+" 简单来讲就是将多行转为单行显示
+set ideajoin
 
 "------ 1. 映射 ------
 "1、终极映射
 nnoremap <leader>; :
-inoremap <A-j> <Esc>
-vnoremap <A-j> <Esc>
+inoremap <A-space> <Esc>
+vnoremap <A-space> <Esc>
 "2、空行
 nnoremap <CR> 4o<Esc>
 "3、方块移动
 nnoremap <S-v> <C-v>
+"4、短暂移动
+"4.1、插入模式短暂移动
+inoremap <A-h> <Left>
+inoremap <A-l> <Right>
+"4.2、行首行尾快速切换
+nnoremap <A-;> 0
+nnoremap <A-'> <End>
+inoremap <A-;> <Esc>0i
+inoremap <A-'> <End>
 
-"------ 批量设置 ------
-"nnoremap pl <C-V>
 
 "------ 2. 搜索 -------
 "1、不高亮搜索内容
@@ -74,8 +89,8 @@ nnoremap <leader>nh :nohlsearch<CR>
 "------ 3. 快速移动 ------
 nnoremap <Leader>j 10j
 nnoremap <Leader>k 10k
-nnoremap <Leader>; 15h
-nnoremap <Leader>' 15l
+nnoremap <Leader>h 15h
+nnoremap <Leader>l 15l
 
 "------ 4. 窗口设置 ------
 "1、创建窗口
@@ -99,15 +114,9 @@ nnoremap <leader>wk <C-w>k
 nnoremap <leader>wh <C-w>h
 nnoremap <leader>wl <C-w>l
 
-"------ 复制粘贴 ------
-"noremap <leader>y *y
-"noremap <leader>p *p
-"noremap <leader>P 0p
-"vnoremap Y +y
-
 "------ 5. 跳转Tab ------
-nnoremap <A-l> gt
-nnoremap <A-h> gT
+nnoremap <C-l> gt
+nnoremap <C-h> gT
 
 "------ 6. vimrc文件 ------
 "1、编辑vimrc文件
@@ -150,7 +159,7 @@ nmap <leader>da :action KJumpAction.Line<CR>
 set keep-english-in-normal-and-restore-in-insert
 
 "------ 9. 打开帮助文档 ------
-nnoremap <leader>hp :e /home/aaronLi/Documents/markdown文档/ideavim配置文件.md<CR>
+" nnoremap <leader>hp :e /home/aaronLi/Documents/markdown文档/ideavim配置文件.md<CR>
 
 
 "------ 10. IDEA配置 ------
@@ -239,11 +248,10 @@ noremap <leader><leader>cm :action ActivateCommitToolWindow<CR>
 noremap <leader><leader>lc :action ActivateLeetcodeToolWindow<CR>
 "打开leetcode console
 noremap <leader><leader>es :action ActivateLeetcodeConsoleToolWindow<CR>
-"打开chatGPT
-"noremap <Leader><Leader>gt :action ActivateChatGPTToolWindow<CR>
 "打开codegeek
 noremap <leader><leader>cg :action ActivatecodegeexToolWindowToolWindow<CR>
-" 打开emoji
 " 打开通义千问
 noremap <leader><leader>ty :action ActivateCodeSearchToolWindow<CR>
 noremap <leader><leader>eg :action ActivateGitHubMarkdownEmojisToolWindow<CR>
+" 打开vcpkg
+noremap <leader><leader>vc :action ActivateVcpkgToolWindow<CR>
