@@ -22,3 +22,5 @@
 
 [diff]
     colorMoved = default
+[http]
+	sslVerify = true

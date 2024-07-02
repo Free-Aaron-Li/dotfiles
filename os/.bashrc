@@ -124,12 +124,27 @@ fi
 # 1. 环境变量
 #----------
 
+# 1. Rust镜像
+export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
+export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
+. "$HOME/.cargo/env"
+
+# 2. neovide 
+export PATH=$PATH:$HOME/software/neovide/
+
+# 3. xmind2022 crack
+export VANA_LICENSE_MODE=true
+export VANA_LICENSE_TO="sui bian xie"
+
+# 4. vcpkg
+export VCPKG_ROOT=/home/aaron/.vcpkg-clion/vcpkg
+export PATH=$VCPKG_ROOT:$PATH
 
 #----------
 # 2. 别名
 #----------
 
-alias nv='nvim' # nvim
+alias nv='neovide' # nvim
 alias pf="fzf "${FZF_CTRL_T_OPTS}"" # CTRL—T
 alias del='trash' # trash
 

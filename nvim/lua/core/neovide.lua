@@ -8,7 +8,8 @@ if vim.g.neovide then
 	--------
 	
 	-- 1. 字体
-  vim.o.guifont = "JetBrains Mono,Noto Color Emoji,LXGW WenKai:h14"
+  -- vim.o.guifont = "JetBrains Mono,Noto Color Emoji,LXGW WenKai:h14"
+	vim.o.guifont = "MeowSansNerd:h14"
 	-- 2. 行间距 
 	vim.o.linespace = 0
 	-- 3. Scale
@@ -53,7 +54,7 @@ if vim.g.neovide then
 	-- 1. 确认退出
 	vim.g.neovide_confirm_quit = true
 	-- 2. 全屏
-	vim.g.neovide_fullscreen = false
+	vim.g.neovide_fullscreen = true
 	-- 3. 记住上一个窗口大小
 	vim.g.neovide_remember_window_size = true
 	-- 4. 禁用IME输入

@@ -44,5 +44,12 @@ return{
     lazy = false,
     priority = 1000,
   },
+  {
+    -- 夜晚东京
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
 } 
 
