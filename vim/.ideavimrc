@@ -187,9 +187,9 @@ nnoremap <Leader>ap :action Debugger.RemoveAllBreakpoints<CR>
 "
 "2、文件及元素
 "2.1、重命名文件(Rename File)
-nnoremap <Leader>rn :action RenameFile<CR>
+nnoremap <Leader>rf :action RenameFile<CR>
 "2.2、重命名元素(Rename Element)
-nnoremap <Leader>re :action RenameElement<CR>
+nnoremap <Leader>rn :action RenameElement<CR>
 "2.3、显示错误及警告信息(Warning message[information])
 nnoremap <Leader>wi :action ShowErrorDescription<CR>
 "2.4、显示代文档信息(quick Documents[information])
