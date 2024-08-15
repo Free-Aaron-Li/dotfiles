@@ -5,6 +5,8 @@ vmap <A-Space> <Esc>
 " 光标移动
 imap <A-h> <Left>
 imap <A-l> <Right>
+imap <A-j> <Down>
+imap <A-k> <Up>
 nmap <A-h> 5h
 nmap <A-l> 5l
 
