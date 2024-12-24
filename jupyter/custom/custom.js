@@ -80,6 +80,7 @@
  * @class customjs
  * @static
  */
+// Vim Binding
 // Configure CodeMirror Keymap
 require([
   'nbextensions/vim_binding/vim_binding',   // depends your installation
@@ -106,4 +107,48 @@ require([
     // Update Help
     km.edit_shortcuts.events.trigger('rebuild.QuickHelp');
   });
+});
+require(["MathJax"], function (MathJax) {
+    MathJax.Hub.Config({
+        "HTML-CSS": {
+            availableFonts: ["TeX"],
+            preferredFont: "TeX",
+            webFont: "TeX",
+            imageFont: null,
+            undefinedFamily: "STIXGeneral 'Arial Unicode MS', 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', 'Verdana', 'Geneva', 'sans-serif"
+        },
+        SVG: {
+            font: "STIX-Web"
+        },
+        TeX: {
+            extensions: ["tex2jax.js"],
+            equationNumbers: {
+                autoNumber: "AMS"
+            },
+            Macros: {
+                // 定义一些常用的宏
+            }
+        },
+        jax: ["input/TeX", "output/HTML-CSS", "output/SVG"],
+        extensions: ["tex2jax.js", "toMathML.js", "MathMenu.js", "MathZoom.js", "AssistiveMML.js", "a11y/accessibility-menu.js"],
+        menuSettings: {
+            zoom: "Double-Click",
+            zscale: "150%",
+            context: "MathJax",
+            explorer: false,
+            assistiveMML: false,
+            semantics: false,
+            texHints: true,
+            mpContext: false,
+            mpRescale: false,
+            fontMenu: false
+        },
+        AuthorInit: function () {
+            MathJax.Hub.Register.StartupHook("End", function () {
+                MathJax.Hub.Insert(MathJax.Hub.config.menuSettings, {
+                    "font": "TeX Gyre Schola Math"
+                });
+            });
+        }
+    });
 });
