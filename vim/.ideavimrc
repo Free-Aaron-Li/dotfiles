@@ -72,7 +72,6 @@ nnoremap <A-'> <End>
 inoremap <A-;> <Esc>0i
 inoremap <A-'> <End>
 
-
 "------ 2. 搜索 -------
 "1、不高亮搜索内容
 set nohlsearch
