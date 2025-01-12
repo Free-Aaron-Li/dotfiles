@@ -1,0 +1,364 @@
+{
+  "menus": [
+    {
+      "shortcut": "Control+Space",
+      "shortcutID": "example-menu",
+      "centered": false,
+      "root": {
+        "type": "submenu",
+        "name": "菜单",
+        "icon": "award_star",
+        "iconTheme": "material-symbols-rounded",
+        "children": [
+          {
+            "type": "submenu",
+            "name": "应用",
+            "icon": "apps",
+            "iconTheme": "material-symbols-rounded",
+            "children": [
+              {
+                "type": "command",
+                "data": {
+                  "command": "/opt/apps/zen-browser/files/squashfs-root/zen"
+                },
+                "name": "浏览器",
+                "icon": "globe",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "/home/aaron/software/thunderbird/thunderbird"
+                },
+                "name": "邮件",
+                "icon": "mail",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "xdg-open ~"
+                },
+                "name": "文件管理器",
+                "icon": "folder_shared",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "warp-terminal"
+                },
+                "name": "终端",
+                "icon": "terminal",
+                "iconTheme": "material-symbols-rounded"
+              },
+	      {
+                "type": "command",
+                "data": {
+                  "command": "/opt/apps/com.logseq/files/squashfs-root/AppRun"
+                },
+                "name": "Logseq",
+                "icon": "logseq",
+                "iconTheme": "simple-icons"
+              },
+	      {
+                "type": "command",
+                "data": {
+                  "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/clion/bin/clion"
+                },
+                "name": "CLion",
+                "icon": "clion",
+                "iconTheme": "simple-icons"
+	      }
+            ]
+          },
+          {
+            "type": "submenu",
+            "name": "网页链接",
+            "icon": "public",
+            "iconTheme": "material-symbols-rounded",
+            "children": [
+              {
+                "type": "uri",
+                "data": {
+                  "uri": "https://www.bing.com"
+                },
+                "name": "Bing",
+                "icon": "searxng",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "uri",
+                "data": {
+                  "uri": "https://github.com"
+                },
+                "name": "GitHub",
+                "icon": "github",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "uri",
+                "data": {
+                  "uri": "https://www.cnblogs.com/aaroncoding"
+                },
+                "name": "Aaron 的博客",
+                "icon": "microdotblog",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "uri",
+                "data": {
+                  "uri": "https://www.youtube.com"
+                },
+                "name": "YouTube",
+                "icon": "youtube",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "uri",
+                "data": {
+                  "uri": "https://discord.gg"
+                },
+                "name": "Discord",
+                "icon": "discord",
+                "iconTheme": "simple-icons"
+              }
+            ]
+          },
+          {
+            "type": "hotkey",
+            "data": {
+              "hotkey": "ControlLeft+AltLeft+ArrowRight",
+              "delayed": false
+            },
+            "name": "后一个桌面",
+            "icon": "arrow_forward",
+            "iconTheme": "material-symbols-rounded"
+          },
+          {
+            "type": "submenu",
+            "name": "剪贴板",
+            "icon": "assignment",
+            "iconTheme": "material-symbols-rounded",
+            "children": [
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "ControlLeft+KeyV",
+                  "delayed": true
+                },
+                "name": "粘贴",
+                "icon": "content_paste_go",
+                "iconTheme": "material-symbols-rounded",
+                "angle": 90
+              },
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "ControlLeft+KeyC",
+                  "delayed": true
+                },
+                "name": "复制",
+                "icon": "content_copy",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "ControlLeft+KeyX",
+                  "delayed": true
+                },
+                "name": "剪切",
+                "icon": "cut",
+                "iconTheme": "material-symbols-rounded"
+              }
+            ]
+          },
+          {
+            "type": "submenu",
+            "name": "媒体",
+            "icon": "play_circle",
+            "iconTheme": "material-symbols-rounded",
+            "children": [
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "MediaTrackNext",
+                  "delayed": false
+                },
+                "name": "下一首",
+                "icon": "skip_next",
+                "iconTheme": "material-symbols-rounded",
+                "angle": 90
+              },
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "MediaPlayPause",
+                  "delayed": false
+                },
+                "name": "暂停 / 播放",
+                "icon": "play_pause",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "AudioVolumeMute",
+                  "delayed": false
+                },
+                "name": "静音",
+                "icon": "music_off",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "MediaTrackPrevious",
+                  "delayed": false
+                },
+                "name": "上一首",
+                "icon": "skip_previous",
+                "iconTheme": "material-symbols-rounded",
+                "angle": 270
+              }
+            ]
+          },
+          {
+            "type": "submenu",
+            "name": "窗口管理",
+            "icon": "select_window",
+            "iconTheme": "material-symbols-rounded",
+            "children": [
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "MetaLeft+ArrowUp",
+                  "delayed": true
+                },
+                "name": "最大化 / 还原",
+                "icon": "open_in_full",
+                "iconTheme": "material-symbols-rounded",
+                "angle": 0
+              },
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "MetaLeft+ArrowRight",
+                  "delayed": true
+                },
+                "name": "向右贴靠",
+                "icon": "text_select_jump_to_end",
+                "iconTheme": "material-symbols-rounded",
+                "angle": 90
+              },
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "AltLeft+F4",
+                  "delayed": true
+                },
+                "name": "关闭窗口",
+                "icon": "cancel_presentation",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "hotkey",
+                "data": {
+                  "hotkey": "MetaLeft+ArrowLeft",
+                  "delayed": true
+                },
+                "name": "向左贴靠",
+                "icon": "text_select_jump_to_beginning",
+                "iconTheme": "material-symbols-rounded",
+                "angle": 270
+              }
+            ]
+          },
+          {
+            "type": "hotkey",
+            "data": {
+              "hotkey": "ControlLeft+AltLeft+ArrowLeft",
+              "delayed": false
+            },
+            "name": "前一个桌面",
+            "icon": "arrow_back",
+            "iconTheme": "material-symbols-rounded"
+          },
+          {
+            "type": "submenu",
+            "name": "收藏夹",
+            "icon": "folder_special",
+            "iconTheme": "material-symbols-rounded",
+            "children": [
+              {
+                "type": "command",
+                "data": {
+                  "command": "xdg-open \"$(xdg-user-dir DOWNLOAD)\""
+                },
+                "name": "下载",
+                "icon": "download",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "xdg-open \"$(xdg-user-dir VIDEOS)\""
+                },
+                "name": "视频",
+                "icon": "video_camera_front",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "xdg-open \"$(xdg-user-dir PICTURES)\""
+                },
+                "name": "图片",
+                "icon": "imagesmode",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "xdg-open \"$(xdg-user-dir DOCUMENTS)\""
+                },
+                "name": "文档",
+                "icon": "text_ad",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "xdg-open \"$(xdg-user-dir DESKTOP)\""
+                },
+                "name": "桌面",
+                "icon": "desktop_windows",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "xdg-open ~"
+                },
+                "name": "个人文件夹",
+                "icon": "home",
+                "iconTheme": "material-symbols-rounded"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "xdg-open \"$(xdg-user-dir MUSIC)\""
+                },
+                "name": "音乐",
+                "icon": "music_note",
+                "iconTheme": "material-symbols-rounded"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "templates": []
+}
