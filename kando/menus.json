@@ -52,7 +52,7 @@
                 "icon": "terminal",
                 "iconTheme": "material-symbols-rounded"
               },
-	      {
+              {
                 "type": "command",
                 "data": {
                   "command": "/opt/apps/com.logseq/files/squashfs-root/AppRun"
@@ -61,13 +61,22 @@
                 "icon": "logseq",
                 "iconTheme": "simple-icons"
               },
-	      {
+              {
                 "type": "command",
                 "data": {
                   "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/clion/bin/clion"
                 },
                 "name": "CLion",
                 "icon": "clion",
+                "iconTheme": "simple-icons"
+              },
+	      {
+	        "type": "command",
+                "data": {
+                  "command": "/opt/apps/io.github.msojocs.bilibili/files/bin/bin/bilibili"
+                },
+                "name": "哔哩哔哩",
+                "icon": "bilibili",
                 "iconTheme": "simple-icons"
 	      }
             ]

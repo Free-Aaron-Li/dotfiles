@@ -244,7 +244,7 @@ noremap <leader><leader>nf :action ActivateNotificationsToolWindow<CR>
 "打开Commit
 noremap <leader><leader>cm :action ActivateCommitToolWindow<CR>
 "打开leetcode
-noremap <leader><leader>lc :action ActivateLeetcodeToolWindow<CR>
+noremap <leader><leader>lc :action Activatelc-helperToolWindow<CR>
 "打开leetcode console
 noremap <leader><leader>es :action ActivateLeetcodeConsoleToolWindow<CR>
 "打开codegeek
