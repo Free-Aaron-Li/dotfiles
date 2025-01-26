@@ -254,3 +254,5 @@ noremap <leader><leader>ty :action ActivateCodeSearchToolWindow<CR>
 noremap <leader><leader>eg :action ActivateGitHubMarkdownEmojisToolWindow<CR>
 " 打开vcpkg
 noremap <leader><leader>vc :action ActivateVcpkgToolWindow<CR>
+" 打开Continue
+noremap <leader><leader>ct :action ActivateContinueToolWindow<CR>
