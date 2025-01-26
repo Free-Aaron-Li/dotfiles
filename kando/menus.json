@@ -131,7 +131,16 @@
                 "name": "Discord",
                 "icon": "discord",
                 "iconTheme": "simple-icons"
-              }
+              },
+	      {
+	        "type": "uri",
+                "data": {
+                  "uri": "https://doc.qt.io/qt-6/classes.html"
+                },
+                "name": "Qt Classes",
+                "icon": "qt",
+                "iconTheme": "simple-icons"
+	      }
             ]
           },
           {
