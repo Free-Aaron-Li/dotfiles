@@ -247,8 +247,6 @@ noremap <leader><leader>cm :action ActivateCommitToolWindow<CR>
 noremap <leader><leader>lc :action Activatelc-helperToolWindow<CR>
 "打开leetcode console
 noremap <leader><leader>es :action ActivateLeetcodeConsoleToolWindow<CR>
-"打开codegeek
-noremap <leader><leader>cg :action ActivatecodegeexToolWindowToolWindow<CR>
 " 打开通义千问
 noremap <leader><leader>ty :action ActivateCodeSearchToolWindow<CR>
 noremap <leader><leader>eg :action ActivateGitHubMarkdownEmojisToolWindow<CR>

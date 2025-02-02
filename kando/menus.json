@@ -19,7 +19,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/opt/apps/zen-browser/files/squashfs-root/zen"
+                  "command": "/usr/opt/apps/com.zen/files/squashfs-root/zen"
                 },
                 "name": "浏览器",
                 "icon": "globe",
@@ -32,15 +32,6 @@
                 },
                 "name": "邮件",
                 "icon": "mail",
-                "iconTheme": "material-symbols-rounded"
-              },
-              {
-                "type": "command",
-                "data": {
-                  "command": "xdg-open ~"
-                },
-                "name": "文件管理器",
-                "icon": "folder_shared",
                 "iconTheme": "material-symbols-rounded"
               },
               {
@@ -64,16 +55,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/clion/bin/clion"
-                },
-                "name": "CLion",
-                "icon": "clion",
-                "iconTheme": "simple-icons"
-              },
-              {
-                "type": "command",
-                "data": {
-                  "command": "/opt/apps/io.github.msojocs.bilibili/files/bin/bin/bilibili"
+                  "command": "/usr/bin/ll-cli run io.msojocs.bilibili"
                 },
                 "name": "哔哩哔哩",
                 "icon": "bilibili",
@@ -132,15 +114,15 @@
                 "icon": "discord",
                 "iconTheme": "simple-icons"
               },
-	      {
-	        "type": "uri",
+              {
+                "type": "uri",
                 "data": {
                   "uri": "https://doc.qt.io/qt-6/classes.html"
                 },
                 "name": "Qt Classes",
                 "icon": "qt",
                 "iconTheme": "simple-icons"
-	      }
+              }
             ]
           },
           {
@@ -152,45 +134,6 @@
             "name": "后一个桌面",
             "icon": "arrow_forward",
             "iconTheme": "material-symbols-rounded"
-          },
-          {
-            "type": "submenu",
-            "name": "剪贴板",
-            "icon": "assignment",
-            "iconTheme": "material-symbols-rounded",
-            "children": [
-              {
-                "type": "hotkey",
-                "data": {
-                  "hotkey": "ControlLeft+KeyV",
-                  "delayed": true
-                },
-                "name": "粘贴",
-                "icon": "content_paste_go",
-                "iconTheme": "material-symbols-rounded",
-                "angle": 90
-              },
-              {
-                "type": "hotkey",
-                "data": {
-                  "hotkey": "ControlLeft+KeyC",
-                  "delayed": true
-                },
-                "name": "复制",
-                "icon": "content_copy",
-                "iconTheme": "material-symbols-rounded"
-              },
-              {
-                "type": "hotkey",
-                "data": {
-                  "hotkey": "ControlLeft+KeyX",
-                  "delayed": true
-                },
-                "name": "剪切",
-                "icon": "cut",
-                "iconTheme": "material-symbols-rounded"
-              }
-            ]
           },
           {
             "type": "submenu",
@@ -376,9 +319,9 @@
           },
           {
             "type": "submenu",
-            "name": "JetBrains",
-            "icon": "jetbrains",
-            "iconTheme": "simple-icons",
+            "name": "code",
+            "icon": "code",
+            "iconTheme": "material-symbols-rounded",
             "children": [
               {
                 "type": "command",
@@ -397,6 +340,34 @@
                 "name": "WebStorm",
                 "icon": "webstorm",
                 "iconTheme": "simple-icons"
+              },
+	      {
+		"type": "command",
+                "data": {
+                  "command": ".local/share/JetBrains/Toolbox/apps/pycharm-professional/bin/pycharm"
+                },
+                "name": "pycharm",
+                "icon": "pycharm",
+                "iconTheme": "simple-icons"
+
+	      },
+              {
+                "type": "command",
+                "data": {
+                  "command": "/home/aaron/environment/Qt/Tools/QtCreator/bin/qtcreator"
+                },
+                "name": "Qt Creator",
+                "icon": "qt",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "/home/aaron/environment/Qt/6.8.1/gcc_64/bin/assistant"
+                },
+                "name": "Qt Assistant",
+                "icon": "assist_walker",
+                "iconTheme": "material-symbols-rounded"
               }
             ]
           }
