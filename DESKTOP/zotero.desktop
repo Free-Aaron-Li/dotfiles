@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Zotero
+GenericName=Zotero
+Exec=/home/aaron/software/Zotero/zotero
+Icon=/home/aaron/software/Zotero/icons/icon128.png
+Categories=Office;
+Terminal=false
