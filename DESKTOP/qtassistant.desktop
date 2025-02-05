@@ -2,6 +2,6 @@
 Type=Application
 Name=Qt Assistant
 Exec=/home/aaron/environment/Qt/6.8.1/gcc_64/bin/assistant
-Icon=/home/aaron/software/assistant.png
+Icon=/home/aaron/environment/Qt/assistant.png
 Categories=Office;
 Terminal=false

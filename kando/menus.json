@@ -341,16 +341,15 @@
                 "icon": "webstorm",
                 "iconTheme": "simple-icons"
               },
-	      {
-		"type": "command",
+              {
+                "type": "command",
                 "data": {
                   "command": ".local/share/JetBrains/Toolbox/apps/pycharm-professional/bin/pycharm"
                 },
                 "name": "pycharm",
                 "icon": "pycharm",
                 "iconTheme": "simple-icons"
-
-	      },
+              },
               {
                 "type": "command",
                 "data": {
