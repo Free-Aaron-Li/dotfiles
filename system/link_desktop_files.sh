@@ -9,6 +9,7 @@ backup_if_exists() {
     fi
 }
 
+# 一、硬连接创建
 # 1. 创建硬链接，将 /home/aaron/.files/vim/.ideavimrc 链接到 /home/aaron/
 source_file1="/home/aaron/.files/vim/.ideavimrc"
 target_file1="/home/aaron/.ideavimrc"
@@ -50,3 +51,27 @@ for file in config.json menus.json; do
         echo "源文件不存在：$source_file"
     fi
 done
+
+# 二、软连接创建
+# 定义源目录和目标目录
+src_dir="/home/aaron/.files/DESKTOP"
+dest_dir="/home/aaron/.local/share/applications"
+
+# 检查目标目录是否存在，如果不存在则创建
+# 冗余设计，通常该目录存在
+if [[ ! -d "dest_dir" ]]; then
+    mkdir -p "dest_dir"
+    echo "创建目录：$dest_dir"
+fi
+
+# 遍历源目录中的所有.desktop文件
+for src in "$src_dir"/*.desktop; do
+    # 处理无匹配文件的情况
+    [ -e "$src" ] || continue
+    # 创建符号链接，强制覆盖已存在的链接
+    ln -sf "$src" "$dest_dir/"
+    echo "创建软链接：$src_dir -> $dest_dir"
+done
+
+echo "软链接创建完成。"
+
