@@ -2,7 +2,7 @@
 Type=Application
 Name=雷鸟
 GenericName=Thunderbird
-Exec=/home/aaron/software/thunderbird/thunderbird
-Icon=/home/aaron/software/thunderbird/icons/thunderbird.png
+Exec=/home/aaron/applications/thunderbird/thunderbird
+Icon=/home/aaron/applications/thunderbird/icons/thunderbird.png
 Categories=Network;
 Terminal=false

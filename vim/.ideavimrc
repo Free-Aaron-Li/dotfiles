@@ -68,7 +68,6 @@ inoremap <A-h> <Left>
 inoremap <A-l> <Right>
 "4.2、行首行尾快速切换
 nnoremap <A-;> 0
-nnoremap <A-'> <End>
 inoremap <A-;> <Esc>0i
 inoremap <A-'> <End>
 
