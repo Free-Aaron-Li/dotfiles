@@ -28,7 +28,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/home/aaron/software/thunderbird/thunderbird"
+                  "command": "/home/aaron/applications/thunderbird/thunderbird"
                 },
                 "name": "邮件",
                 "icon": "mail",
@@ -59,6 +59,15 @@
                 },
                 "name": "哔哩哔哩",
                 "icon": "bilibili",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "/opt/apps/com.follow/files/squashfs-root/AppRun"
+                },
+                "name": "Follow",
+                "icon": "frontendmentor",
                 "iconTheme": "simple-icons"
               }
             ]
@@ -332,6 +341,16 @@
                 "icon": "clion",
                 "iconTheme": "simple-icons"
               },
+	      {
+                "type": "command",
+                "data": {
+                  "command": "/usr/share/code/code"
+                },
+                "name": "VS Code",
+                "icon": "codecrafters",
+                "iconTheme": "simple-icons"
+
+	      },
               {
                 "type": "command",
                 "data": {
