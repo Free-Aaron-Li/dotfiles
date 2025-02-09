@@ -1,0 +1,255 @@
+"---------------
+"Author:Aaron.Li
+"Version:ideaVim 2.12.0
+"---------------
+"
+"
+"------ leader ------
+"1、设置leader key
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+"2、显示行号
+set number
+"3、相对行号
+set relativenumber
+"4、设置光标在insert模式下的样式
+set guicursor=i:ver10
+"5、连通系统剪贴板
+set clipboard=unnamed
+set clipboard+=ideaput
+
+"------ plugin ------
+"1、nerdtree
+"https://github.com/JetBrains/ideavim/wiki/NERDTree-support
+"操纵目录
+"Plug 'preservim/nerdtree`
+set NERDTree
+"Use set noNERDTree to disable this extension.
+"noNERDTree
+nnoremap <leader>pr :NERDTree<CR>
+"2、Quickscope
+"单行移动
+"set quickscope
+"let g:qs_primary_color = '#aa381e'
+"let g:qs_secondary_color = '#ffffff'
+"let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+"let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+"3、surround
+Plug 'tpopevim-surround'
+set surround
+"4、Plug 'easymotion/vim-easymotion'
+"let g:EasyMotion_override_acejump = 0
+"map <leader><leader>a <Plug>(easymotion-jumptoanywhere)
+"map <leader><leader>l <Plug>(easymotion-lineanywhere)
+"5、Acejump
+" Press `f` to activate AceJump
+map f <Action>(AceAction)
+" Press `F` to activate Target Mode
+map F <Action>(AceTargetAction)
+" Press `g` to activate Line Mode
+"map g <Action>(AceLineAction)
+"6、启用ideajoin
+" 具体查看：https://github.com/JetBrains/ideavim/wiki/ideajoin-examples
+" 简单来讲就是将多行转为单行显示
+set ideajoin
+
+"------ 1. 映射 ------
+"1、终极映射
+nnoremap <leader>; :
+inoremap <A-space> <Esc>
+vnoremap <A-space> <Esc>
+"2、空行
+nnoremap <CR> 4o<Esc>
+"3、方块移动
+nnoremap <S-v> <C-v>
+"4、短暂移动
+"4.1、插入模式短暂移动
+inoremap <A-h> <Left>
+inoremap <A-l> <Right>
+"4.2、行首行尾快速切换
+nnoremap <A-;> 0
+inoremap <A-;> <Esc>0i
+inoremap <A-'> <End>
+
+"------ 2. 搜索 -------
+"1、不高亮搜索内容
+set nohlsearch
+"2、搜索跳转
+set incsearch
+"3、忽略大小写
+set smartcase
+"4、只能显示大小写
+set showmode
+"4、清除hlsearch高亮
+nnoremap <leader>nh :nohlsearch<CR>
+
+
+"------ 3. 快速移动 ------
+nnoremap <Leader>j 10j
+nnoremap <Leader>k 10k
+nnoremap <Leader>h 15h
+nnoremap <Leader>l 15l
+
+"------ 4. 窗口设置 ------
+"1、创建窗口
+"1.1、横向创建窗口
+nnoremap <leader>ws <C-w>s
+"1.2、纵向创建窗口
+nnoremap <leader>wv <C-w>v
+
+"2、关闭与离开窗口
+"2.1、关闭当前窗口
+nnoremap <leader>wc <C-w>c
+"2.2、离开当前窗口
+nnoremap <leader>wq <C-w>q
+"2.3、关闭当前窗口以外的所有窗口
+nnoremap <leader>wo <C-w>o
+
+"3、窗口间游走
+"3.1、四个方向游走
+nnoremap <leader>wj <C-w>j
+nnoremap <leader>wk <C-w>k
+nnoremap <leader>wh <C-w>h
+nnoremap <leader>wl <C-w>l
+
+"------ 5. 跳转Tab ------
+nnoremap <C-l> gt
+nnoremap <C-h> gT
+
+"------ 6. vimrc文件 ------
+"1、编辑vimrc文件
+nnoremap <leader>ce :e ~/.ideavimrc<CR>
+"2、保存退出
+nnoremap <A-x> :wq<CR>
+"3、执行vimrc文件
+nnoremap <leader>cs :source ~/.ideavimrc<CR>
+"noremap <C-s> :action IdeaVim.ReloadVimRc.reload<CR>
+
+
+"------ 7. 快速跳转 ------
+"需要使用到插件“KJump”
+"-------- kJump ----------
+"Input 1 character and jump to any same character.
+"nmap <leader><leader>w :action KJumpAction<CR>
+
+"Jump to any word.
+nmap <leader>ds :action KJumpAction.Word0<CR>
+"Input 1 character and jump to any word start with this character.
+"nmap <Leader><Leader>o :action KJumpAction.word1<CR>
+"Jump to any line.
+nmap <leader>da :action KJumpAction.Line<CR>
+"需要插件sneak
+"set sneak
+"nmap <leader>d <Plug>(Sneak_s)
+"nmap <leader>f <Plug>(Sneak_S)
+
+
+"------ 8. normal模式下和insert模式下输入法的自动切换 ------
+" set keep-english-in-normal[-and-restore-in-insert]
+" 需要使用到插件“IdeaVimExtension”
+" set keep-english-in-normal[-and-restore-in-insert]
+" set nokeep-english-in-normal-and-restore-in-insert
+" set keep-english-in-normal-and-restore-in-insert
+" 在normal模式保持英文状态
+" set keep-english-in-normal
+" 在normal模式保持英文状态,并在回到insert时恢复输入法到原来的状态.
+" 例如,编写一段中文注释,用中文输入法写了一段文字,进入normal模式移动光标到下一行,再回到插入模式继续使用中文编辑.
+set keep-english-in-normal-and-restore-in-insert
+
+"------ 9. 打开帮助文档 ------
+" nnoremap <leader>hp :e /home/aaronLi/Documents/markdown文档/ideavim配置文件.md<CR>
+
+
+"------ 10. IDEA配置 ------
+"
+"1、运行及调试
+"运行上次运行的类(run[rr])
+noremap <leader>rr :action Run<CR>
+"选择运行配置(action Choose run now Configuration[rs])
+noremap <Leader>rs :action ChooseRunConfiguration<CR>
+"运行当前（now）类(action run now Class[now run])
+noremap <leader>rn :action RunClass<CR>
+"Debug上一次运行的类(action Debug)
+noremap <leader>ad :action Debug<CR>
+"Debug当前类(action Debug now Class)
+noremap <leader>dn :action DebugClass<CR>
+"项目停止运行(stop run)
+noremap <leader>sr :action Stop<CR>
+
+"选择调试配置(Choose Debug Configuration[调试 ts])
+nnoremap <Leader>ts :action ChooseDebugConfiguration<CR>
+"切换断点(switch breakpoint[point])
+nnoremap <Leader>sp :action ToggleLineBreakpoint<CR>
+"删除所有断点(Delete all breakpoint[point])
+nnoremap <Leader>ap :action Debugger.RemoveAllBreakpoints<CR>
+"
+"2、文件及元素
+"2.1、重命名文件(Rename File)
+nnoremap <Leader>rf :action RenameFile<CR>
+"2.2、重命名元素(Rename Element)
+nnoremap <Leader>rn :action RenameElement<CR>
+"2.3、显示错误及警告信息(Warning message[information])
+nnoremap <Leader>wi :action ShowErrorDescription<CR>
+"2.4、显示代文档信息(quick Documents[information])
+nnoremap <Leader>qi :action QuickJavaDoc<CR>
+"2.5、格式化文件
+nnoremap <Leader>j :action  ReformatCode<CR>
+nnoremap <Leader>f :action ShowReformatFileDialog<CR>
+"
+"3、类型定义及声明
+"3.1、跳转至类型声明(Jump to Type declaration[jtd])
+nnoremap <Leader>gtd :action GotoTypeDeclaration<CR>
+"3.2、跳转至声明或用例(Jump to declaration or use case[jdu])
+" 当然，可以直接使用命令“gd”
+nnoremap <Leader>gdd :action GotoDeclaration<CR>
+"3.3、跳转至定义(Jump to definition[jdd])
+nnoremap <Leader>gii :action GotoImplementation<CR>
+"3.4 后退
+nnoremap <Leader>gdj :action Back<CR>
+"3.5 前进
+nnoremap <Leader>gdk :action Forward<CR>
+"
+"4、书签
+"4.1 助记符书签
+nnoremap <Leader>am <c>F11
+
+"----打开预览窗口---
+"打开TerminalTool
+noremap <leader><leader>tm  :action ActivateTerminalToolWindow<CR>
+"打开project
+noremap <leader><leader>pr :action ActivateProjectToolWindow<CR>
+"打开Structure
+noremap <leader><leader>st :action ActivateStructureToolWindow<CR>
+"打开Problems
+noremap <leader><leader>er :action ActivateProblemsViewToolWindow<CR>
+"打开TODO
+noremap <leader><leader>td :action ActivateTODOToolWindow<CR>
+"打开Version Control
+noremap <leader><leader>vs :action ActivateVersionControlToolWindow<CR>
+"打开Services
+noremap <leader><leader>sv :action ActivateServicesToolWindow<CR>
+"打开Bookmarks
+noremap <leader><leader>bm :action ActivateBookmarksToolWindow<CR>
+"打开Python Packages
+noremap <leader><leader>pp :action ActivatePythonPackagesToolWindow<CR>
+"打开Run
+noremap <leader><leader>rn :action ActivateRunToolWindow<CR>
+"打开CMake
+noremap <leader><leader>ca :action ActivateCMakeToolWindow<CR>
+"打开DataBase
+noremap <leader><leader>db :action ActivateDatabaseToolWindow<CR>
+"打开Notifications
+noremap <leader><leader>nf :action ActivateNotificationsToolWindow<CR>
+"打开Commit
+noremap <leader><leader>cm :action ActivateCommitToolWindow<CR>
+"打开leetcode
+noremap <leader><leader>lc :action Activatelc-helperToolWindow<CR>
+"打开leetcode console
+noremap <leader><leader>es :action ActivateLeetcodeConsoleToolWindow<CR>
+" 打开通义千问
+noremap <leader><leader>ty :action ActivateCodeSearchToolWindow<CR>
+noremap <leader><leader>eg :action ActivateGitHubMarkdownEmojisToolWindow<CR>
+" 打开vcpkg
+noremap <leader><leader>vc :action ActivateVcpkgToolWindow<CR>
+" 打开Continue
+noremap <leader><leader>ct :action ActivateContinueToolWindow<CR>
