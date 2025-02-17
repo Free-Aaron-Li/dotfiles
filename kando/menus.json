@@ -341,7 +341,25 @@
                 "icon": "clion",
                 "iconTheme": "simple-icons"
               },
-	      {
+              {
+                "type": "command",
+                "data": {
+                  "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin/idea"
+                },
+                "name": "IDEA",
+                "icon": "intellijidea",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/android-studio/bin/studio"
+                },
+                "name": "Android Studio",
+                "icon": "androidstudio",
+                "iconTheme": "simple-icons"
+	      },
+              {
                 "type": "command",
                 "data": {
                   "command": "/usr/share/code/code"
@@ -349,8 +367,7 @@
                 "name": "VS Code",
                 "icon": "codecrafters",
                 "iconTheme": "simple-icons"
-
-	      },
+              },
               {
                 "type": "command",
                 "data": {

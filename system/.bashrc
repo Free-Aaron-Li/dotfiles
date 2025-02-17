@@ -121,12 +121,17 @@ fi
 ###########################
 ########## ALIAS ##########
 ###########################
+##
+## Delete Files
+##
 alias del='trash-put'
 
 ###########################
 ####### ENVIRONMENT #######
 ###########################
-# 1. Anaconda
+##
+## 1. Anaconda
+##
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/aaron/environment/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -142,7 +147,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# 2. Superfile
+##
+## 2. Superfile
+##
 spf() {
     os=$(uname -s)
 
@@ -164,7 +171,9 @@ spf() {
     }
 }
 
-# 3. Qt
+##
+## 3. Qt
+##
 export QTDIR=/home/aaron/environment/Qt/6.8.1/
 export PATH=/home/aaron/environment/Qt/6.8.1/gcc_64:$PATH
 export PATH=/home/aaron/environment/Qt/6.8.1/gcc_64/bin:$PATH
@@ -174,4 +183,38 @@ export QT_QPA_PLATFORM=xcb
 # readest 应用问题
 export WEBKIT_DISABLE_DMABUF_RENDERER=1
 
+##
+## 4. NVM 
+##
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+##
+## 5. bin
+##
+export PATH="/home/aaron/.local/share/../bin:$PATH"
+
+## 
+## 6. JDK
+##
+export JAVA_HOME=/home/aaron/environment/jdk
+export PATH=$JAVA_HOME/bin:$PATH
+
+##
+## 7. Flutter
+##
+export FLUTTER_HOME=/home/aaron/environment/flutter
+export PATH=$FLUTTER_HOME/bin:$PATH
+## 7.1 Flutter Pub 源
+export PUB_HOSTED_URL="https://pub.flutter-io.cn"
+export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
+
+##
+## 8. Android
+##
+export ANDROID_HOME=/home/aaron/environment/Android/Sdk
+export PATH=/home/aaron/environment/Android/Sdk/build-tools/34.0.0:$PATH
+export PATH=$ANDROID_HOME:$PATH
+export PATH=$ANDROID_HOME/build-tools/34.0.0:$PATH
+export PATH=$ANDROID_HOME/platform-tools:$PATH

@@ -2,7 +2,7 @@
 Type=Application
 Name=Zotero
 GenericName=Zotero
-Exec=/home/aaron/applications/Zotero/zotero.desktop
+Exec=/home/aaron/applications/Zotero/zotero
 Icon=/home/aaron/applications/Zotero/icons/icon128.png
 Categories=Office;
 Terminal=false
