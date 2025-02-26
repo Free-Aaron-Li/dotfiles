@@ -209,12 +209,16 @@ export PATH=$FLUTTER_HOME/bin:$PATH
 ## 7.1 Flutter Pub 源
 export PUB_HOSTED_URL="https://pub.flutter-io.cn"
 export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
+## 7.2 Dart
+export PATH=$PATH:/home/aaron/environment/flutter/bin
 
 ##
 ## 8. Android
 ##
 export ANDROID_HOME=/home/aaron/environment/Android/Sdk
-export PATH=/home/aaron/environment/Android/Sdk/build-tools/34.0.0:$PATH
 export PATH=$ANDROID_HOME:$PATH
-export PATH=$ANDROID_HOME/build-tools/34.0.0:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/build-tools/34.0.0
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
+export PATH=$PATH:$ANDROID_HOME/ndk
+export PATH=$PATH:$ANDROID_HOME/platform-tools

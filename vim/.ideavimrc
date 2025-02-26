@@ -142,7 +142,8 @@ nmap <leader>da :action KJumpAction.Line<CR>
 "set sneak
 "nmap <leader>d <Plug>(Sneak_s)
 "nmap <leader>f <Plug>(Sneak_S)
-
+" 换行
+inoremap <S-CR> <Esc>o
 
 "------ 8. normal模式下和insert模式下输入法的自动切换 ------
 " set keep-english-in-normal[-and-restore-in-insert]
@@ -253,3 +254,5 @@ noremap <leader><leader>eg :action ActivateGitHubMarkdownEmojisToolWindow<CR>
 noremap <leader><leader>vc :action ActivateVcpkgToolWindow<CR>
 " 打开Continue
 noremap <leader><leader>ct :action ActivateContinueToolWindow<CR>
+" 打开 Device Manager
+noremap <leader><leader>dm :action ActivateDeviceManager2ToolWindow<CR>
