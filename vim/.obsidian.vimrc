@@ -19,3 +19,5 @@ imap <S-CR> <Esc>o
 
 " 连接系统剪贴板
 set clipboard=unnamed
+
+" 命令模式输入法切换

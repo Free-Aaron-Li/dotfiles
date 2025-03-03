@@ -30,7 +30,7 @@
                 "data": {
                   "command": "/home/aaron/applications/thunderbird/thunderbird"
                 },
-                "name": "邮件",
+                "name": "雷鸟",
                 "icon": "mail",
                 "iconTheme": "material-symbols-rounded"
               },
@@ -55,7 +55,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/usr/bin/ll-cli run io.msojocs.bilibili"
+                  "command": "/opt/apps/io.github.msojocs.bilibili/files/bin//bin/bilibili"
                 },
                 "name": "哔哩哔哩",
                 "icon": "bilibili",
@@ -64,7 +64,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/opt/apps/com.follow/files/squashfs-root/AppRun"
+                  "command": "/opt/apps/is.follow/files/Follow"
                 },
                 "name": "Follow",
                 "icon": "frontendmentor",
