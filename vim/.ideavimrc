@@ -1,4 +1,3 @@
-"---------------
 "Author:Aaron.Li
 "Version:ideaVim 2.12.0
 "---------------
@@ -70,6 +69,8 @@ inoremap <A-l> <Right>
 nnoremap <A-;> 0
 inoremap <A-;> <Esc>0i
 inoremap <A-'> <End>
+"5、折叠
+"nnoremap <S-o> zfi{
 
 "------ 2. 搜索 -------
 "1、不高亮搜索内容
@@ -166,8 +167,8 @@ set keep-english-in-normal-and-restore-in-insert
 "1、运行及调试
 "运行上次运行的类(run[rr])
 noremap <leader>rr :action Run<CR>
-"选择运行配置(action Choose run now Configuration[rs])
-noremap <Leader>rs :action ChooseRunConfiguration<CR>
+"选择运行配置(action Choose run now Configuration[rc])
+noremap <Leader>rc :action ChooseRunConfiguration<CR>
 "运行当前（now）类(action run now Class[now run])
 noremap <leader>rn :action RunClass<CR>
 "Debug上一次运行的类(action Debug)
