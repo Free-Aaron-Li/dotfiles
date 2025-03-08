@@ -341,6 +341,15 @@
                 "icon": "clion",
                 "iconTheme": "simple-icons"
               },
+	      {
+                "type": "command",
+                "data": {
+                  "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/datagrip/bin/datagrip.sh"
+                },
+                "name": "DataGrip",
+                "icon": "datagrip",
+                "iconTheme": "simple-icons"
+	      },
               {
                 "type": "command",
                 "data": {
@@ -368,6 +377,24 @@
                 "icon": "codecrafters",
                 "iconTheme": "simple-icons"
               },
+	      {
+                "type": "command",
+                "data": {
+                  "command": "/home/aaron/environment/Qt/6.8.1/gcc_64/bin/assistant"
+                },
+                "name": "Qt Assistant",
+                "icon": "assist_walker",
+                "iconTheme": "material-symbols-rounded"
+              },
+	      {
+                "type": "command",
+                "data": {
+                  "command": "/home/aaron/environment/Qt/Tools/QtCreator/bin/qtcreator"
+                },
+                "name": "Qt Creator",
+                "icon": "qt",
+                "iconTheme": "simple-icons"
+              },
               {
                 "type": "command",
                 "data": {
@@ -385,24 +412,6 @@
                 "name": "pycharm",
                 "icon": "pycharm",
                 "iconTheme": "simple-icons"
-              },
-              {
-                "type": "command",
-                "data": {
-                  "command": "/home/aaron/environment/Qt/Tools/QtCreator/bin/qtcreator"
-                },
-                "name": "Qt Creator",
-                "icon": "qt",
-                "iconTheme": "simple-icons"
-              },
-              {
-                "type": "command",
-                "data": {
-                  "command": "/home/aaron/environment/Qt/6.8.1/gcc_64/bin/assistant"
-                },
-                "name": "Qt Assistant",
-                "icon": "assist_walker",
-                "iconTheme": "material-symbols-rounded"
               }
             ]
           }
