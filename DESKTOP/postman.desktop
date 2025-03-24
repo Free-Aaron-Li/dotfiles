@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Postman
+Exec=/home/aaron/applications/Postman/Postman
+Icon=/home/aaron/applications/Postman/app/icons/icon_128x128.png
+Categories=Network;
+Terminal=false
