@@ -153,9 +153,9 @@
                 "angle": 90
               },
               {
-                "type": "hotkey",
+                "type": "command",
                 "data": {
-                  "hotkey": "MediaPlayPause",
+                  "command": "playerctl status | grep -q 'Playing' && playerctl pause || playerctl play",
                   "delayed": false
                 },
                 "name": "暂停 / 播放",
