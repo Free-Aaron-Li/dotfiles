@@ -2,6 +2,6 @@
 Type=Application
 Name=PPOCRLabel
 Exec=~/environment/anaconda3/envs/paddle/bin/python3 ~/environment/paddle/PPOCRLabel/PPOCRLabel.py --lang ch --kie True
-Icon=/home/aaron/applications/PPOCRLabel/ppocrlabel.png
+Icon=/home/aaron/environment/paddle/PPOCRLabel/ppocrlabel.png
 Categories=Development;
 Terminal=false

@@ -60,15 +60,6 @@
                 "name": "哔哩哔哩",
                 "icon": "bilibili",
                 "iconTheme": "simple-icons"
-              },
-              {
-                "type": "command",
-                "data": {
-                  "command": "/opt/apps/is.follow/files/Follow"
-                },
-                "name": "Follow",
-                "icon": "frontendmentor",
-                "iconTheme": "simple-icons"
               }
             ]
           },
@@ -341,7 +332,7 @@
                 "icon": "clion",
                 "iconTheme": "simple-icons"
               },
-	      {
+              {
                 "type": "command",
                 "data": {
                   "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/datagrip/bin/datagrip.sh"
@@ -349,7 +340,7 @@
                 "name": "DataGrip",
                 "icon": "datagrip",
                 "iconTheme": "simple-icons"
-	      },
+              },
               {
                 "type": "command",
                 "data": {
@@ -367,7 +358,7 @@
                 "name": "Android Studio",
                 "icon": "androidstudio",
                 "iconTheme": "simple-icons"
-	      },
+              },
               {
                 "type": "command",
                 "data": {
@@ -377,7 +368,7 @@
                 "icon": "codecrafters",
                 "iconTheme": "simple-icons"
               },
-	      {
+              {
                 "type": "command",
                 "data": {
                   "command": "/home/aaron/environment/Qt/6.8.1/gcc_64/bin/assistant"
@@ -386,7 +377,7 @@
                 "icon": "assist_walker",
                 "iconTheme": "material-symbols-rounded"
               },
-	      {
+              {
                 "type": "command",
                 "data": {
                   "command": "/home/aaron/environment/Qt/Tools/QtCreator/bin/qtcreator"

@@ -257,3 +257,9 @@ noremap <leader><leader>vc :action ActivateVcpkgToolWindow<CR>
 noremap <leader><leader>ct :action ActivateContinueToolWindow<CR>
 " 打开 Device Manager
 noremap <leader><leader>dm :action ActivateDeviceManager2ToolWindow<CR>
+" 使用AI Assistant
+noremap <leader><leader>ai :action ActivateAIAssistantToolWindow<CR>
+" 打开git
+noremap <leader><leader>gi :action ActivateVersionControlToolWindow<CR>
+" xmake
+noremap <leader><leader>xm :action ActivateXMakeToolWindow<CR>

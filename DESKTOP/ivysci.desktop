@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=ivySCI
+Exec=/home/aaron/applications/ivysci/ivySCI-5.10.1.AppImage
+Icon=/home/aaron/applications/ivysci/ivysci.png
+Categories=Network;
+Terminal=false
