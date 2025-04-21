@@ -126,6 +126,10 @@ fi
 ##
 alias del='trash-put'
 
+##
+## Show Files
+alias ls='lsd'
+
 ###########################
 ####### ENVIRONMENT #######
 ###########################
@@ -222,3 +226,10 @@ export PATH=$PATH:$ANDROID_HOME/build-tools/34.0.0
 export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
 export PATH=$PATH:$ANDROID_HOME/ndk
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+##
+## 9. C/C++ Toolkit
+##
+export CC=/home/aaron/environment/gcc-14.2.0/bin/gcc
+export CXX=/home/aaron/environment/gcc-14.2.0/bin/g++
+

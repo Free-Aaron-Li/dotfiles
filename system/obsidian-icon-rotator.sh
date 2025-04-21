@@ -9,8 +9,8 @@ mkdir -p "$(dirname "$USER_DESKTOP_FILE")"
 [ ! -f "$USER_DESKTOP_FILE" ] && \
 cp /usr/share/applications/obsidian.desktop "$USER_DESKTOP_FILE"
 
-# 随机选择图标（0-21）
-icon_number=$(( RANDOM % 22 ))
+# 随机选择图标（0-31）
+icon_number=$(( RANDOM % 32 ))
 icon_path="$ICON_DIR/${icon_number}.svg"
 
 # 更新桌面文件
@@ -19,9 +19,28 @@ sed -i "s|^Icon=.*|Icon=$icon_path|" "$USER_DESKTOP_FILE"
 # 更新桌面数据库
 update-desktop-database "$HOME/.local/share/applications/"
 
-# Deepin 专用图标刷新命令（可能需要根据实际环境调整）
+# 确保 hicolor 主题的 index.theme 存在
+HICOLOR_DIR="$HOME/.local/share/icons/hicolor"
+mkdir -p "$HICOLOR_DIR"
+if [ ! -f "$HICOLOR_DIR/index.theme" ]; then
+    cat > "$HICOLOR_DIR/index.theme" <<EOF
+[Icon Theme]
+Name=hicolor
+Comment=Fallback theme for all icons
+Directories=scalable/apps
+
+[scalable/apps]
+Size=48
+Type=Scalable
+MinSize=1
+MaxSize=512
+Context=Applications
+EOF
+fi
+
+# 更新图标缓存
 if hash gtk-update-icon-cache 2>/dev/null; then
-  gtk-update-icon-cache -f ~/.local/share/icons/hicolor/
+  gtk-update-icon-cache -f "$HICOLOR_DIR"
 fi
 
 # 尝试通过 DDE Dock 刷新（Deepin V20+ 验证有效）
