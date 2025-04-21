@@ -145,6 +145,8 @@ nmap <leader>da :action KJumpAction.Line<CR>
 "nmap <leader>f <Plug>(Sneak_S)
 " 换行
 inoremap <S-CR> <Esc>o
+" 行后缀补全分号
+inoremap <S-CR> <Esc>A;<CR>
 
 "------ 8. normal模式下和insert模式下输入法的自动切换 ------
 " set keep-english-in-normal[-and-restore-in-insert]

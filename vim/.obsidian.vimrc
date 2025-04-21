@@ -3,10 +3,10 @@ imap <A-Space> <Esc>
 vmap <A-Space> <Esc>
 
 " 光标移动
-imap <A-h> <Left>
-imap <A-l> <Right>
-imap <A-j> <Down>
-imap <A-k> <Up>
+imap <A-h> <Esc>i
+imap <A-l> <Esc>la
+imap <A-j> <Esc>ji
+imap <A-k> <Esc>ki
 
 " 行首行尾移动
 nmap <A-;> 0

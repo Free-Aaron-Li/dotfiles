@@ -1,12 +1,8 @@
 {
   "locale": "auto",
-  "menuTheme": "clean-circle",
+  "menuTheme": "default",
   "darkMenuTheme": "default",
-  "menuThemeColors": {
-    "rainbow-labels": {
-      "icon-color": "rgba(47, 12, 51, 1)"
-    }
-  },
+  "menuThemeColors": {},
   "darkMenuThemeColors": {},
   "enableDarkModeForMenuThemes": false,
   "soundTheme": "none",
