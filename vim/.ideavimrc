@@ -145,7 +145,8 @@ nmap <leader>da :action KJumpAction.Line<CR>
 "nmap <leader>f <Plug>(Sneak_S)
 " 换行
 inoremap <S-CR> <Esc>o
-" 行后缀补全分号
+" 当按下 Shift+Enter 时，检查当前行尾是否有分号，只有在没有分号的情况下添加分号
+nnoremap <S-CR> A;<CR>
 inoremap <S-CR> <Esc>A;<CR>
 
 "------ 8. normal模式下和insert模式下输入法的自动切换 ------
