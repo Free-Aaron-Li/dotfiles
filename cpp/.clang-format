@@ -6,8 +6,9 @@ AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
 AlignOperands: true
 AlignTrailingComments: true
-AlwaysBreakAfterDefinitionReturnType: All
-BraceWrapping: 
+AlwaysBreakAfterDefinitionReturnType: true
+AlwaysBreakAfterReturnType: AllDefinitions
+BraceWrapping:
   AfterCaseLabel: false
   AfterClass: false
   AfterControlStatement: false
@@ -30,8 +31,9 @@ BreakConstructorInitializersBeforeComma: false
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ContinuationIndentWidth: 8
 Cpp11BracedListStyle: false
+ColumnLimit: 80
 IncludeBlocks: Preserve
-IncludeCategories: 
+IncludeCategories:
   - Regex: '^<.*'
     Priority: 1
   - Regex: '^".*'
