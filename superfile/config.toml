@@ -35,6 +35,9 @@ sort_order_reversed = false
 # Case sensitive sort by name (captal "B" comes before "a" if true).
 case_sensitive_sort = false
 # 
+# Whether to close the shell on successful command execution.
+shell_close_on_success = false
+# 
 # Whether to enable debug mode.
 debug = false
 # 

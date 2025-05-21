@@ -129,6 +129,10 @@ alias del='trash-put'
 ## Show Files
 alias ls='lsd'
 
+##
+## Neovide
+alias vide='neovide'
+
 ###########################
 ####### ENVIRONMENT #######
 ###########################
@@ -234,8 +238,10 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ##
 ## 9. C/C++ Toolkit
 ##
-export CC=$HOME/environment/gcc-14.2.0/bin/gcc
-export CXX=$HOME/environment/gcc-14.2.0/bin/g++
+export CC=$HOME/environment/gcc-15.1/bin/gcc
+export CXX=$HOME/environment/gcc-15.1/bin/g++
+export MY_GCC=$HOME/environment/gcc-15.1/
+export MY_GLIBC=$HOME/environment/glibc
 
 ##
 ## 10. LLVM
