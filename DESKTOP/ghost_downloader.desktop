@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Ghost Downloader
+GenericName=Ghost-Downloader
+Exec=/home/aaron/applications/Ghost-Downloader/Ghost-Downloader-3.bin
+Icon=/home/aaron/.files/DESKTOP/icons/ghost.png
+Categories=Network;
+Terminal=false

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Watt-Toolkit
+Comment=多功能Steam工具箱
+Exec=~/applications/steam++/Steam++.sh
+Icon=/home/aaron/applications/steam++/Icons/Watt-Toolkit.png
+Categories=network;
+Terminal=false
