@@ -131,7 +131,18 @@ alias ls='lsd'
 
 ##
 ## Neovide
+##
 alias vide='neovide'
+
+##
+## Fix File name
+##
+alias fn='/home/aaron/.files/script/fix_filename.sh'
+
+##
+## Zen Browser
+##
+alias zen='/opt/apps/app.zen-browser/files/AppRun'
 
 ###########################
 ####### ENVIRONMENT #######
