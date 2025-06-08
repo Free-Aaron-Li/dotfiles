@@ -94,17 +94,17 @@ nnoremap <Leader>l 15l
 "------ 4. 窗口设置 ------
 "1、创建窗口
 "1.1、横向创建窗口
-nnoremap <leader>ws <C-w>s
+nnoremap <leader>ws :split<CR>
 "1.2、纵向创建窗口
-nnoremap <leader>wv <C-w>v
+nnoremap <leader>wv :vsplit<CR>
 
 "2、关闭与离开窗口
 "2.1、关闭当前窗口
-nnoremap <leader>wc <C-w>c
+nnoremap <leader>wc :q<CR>
 "2.2、离开当前窗口
 nnoremap <leader>wq <C-w>q
 "2.3、关闭当前窗口以外的所有窗口
-nnoremap <leader>wo <C-w>o
+nnoremap <leader>wo :only<CR>
 
 "3、窗口间游走
 "3.1、四个方向游走
