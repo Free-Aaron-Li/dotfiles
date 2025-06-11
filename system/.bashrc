@@ -144,6 +144,22 @@ alias fn='/home/aaron/.files/script/fix_filename.sh'
 ##
 alias zen='/opt/apps/app.zen-browser/files/AppRun'
 
+##
+## All list
+##
+alias lsa='ls -ahil'
+
+##
+## grep
+##
+alias grep='grep --color=auto --extended-regexp'
+
+##
+## Interactively copy and move
+##
+alias cp='cp --interactive'
+alias mv='mv --interactive'
+
 ###########################
 ####### ENVIRONMENT #######
 ###########################
@@ -197,9 +213,9 @@ spf() {
 ##
 ## 3. Qt
 ##
-export QTDIR=$HOME/environment/Qt/6.8.1/
-export PATH=$HOME/environment/Qt/6.8.1/gcc_64:$PATH
-export PATH=$HOME/environment/Qt/6.8.1/gcc_64/bin:$PATH
+export QTDIR=$HOME/environment/Qt/6.9.0/
+export PATH=$HOME/environment/Qt/6.9.0/gcc_64:$PATH
+export PATH=$HOME/environment/Qt/6.9.0/gcc_64/bin:$PATH
 export QT_QPA_PLATFORM=xcb
 
 # 解决：KMS: DRM_IOCTL_MODE_CREATE_DUMB failed
