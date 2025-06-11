@@ -265,10 +265,12 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ##
 ## 9. C/C++ Toolkit
 ##
-export CC=$HOME/environment/gcc-15.1/bin/gcc
-export CXX=$HOME/environment/gcc-15.1/bin/g++
-export MY_GCC=$HOME/environment/gcc-15.1/
+export CC=$HOME/environment/gcc-15.1.0/bin/gcc
+export CXX=$HOME/environment/gcc-15.1.0/bin/g++
+export MY_GCC=$HOME/environment/gcc-15.1.0/
+export LD_LIBRARY_PATH="/home/aaron/environment/gcc-15.1.0/lib64:$LD_LIBRARY_PATH"
 export MY_GLIBC=$HOME/environment/glibc
+export PATH="/home/aaron/environment/gdb-16.3/bin:$PATH"
 
 ##
 ## 10. LLVM
