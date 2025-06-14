@@ -75,12 +75,12 @@ esac
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls='ls --color=auto'
-	#alias dir='dir --color=auto'
-	#alias vdir='vdir --color=auto'
+	alias dir='dir --color=auto'
+	alias vdir='vdir --color=auto'
 
-	#alias grep='grep --color=auto'
-	#alias fgrep='fgrep --color=auto'
-	#alias egrep='egrep --color=auto'
+	alias grep='grep --color=auto'
+	alias fgrep='fgrep --color=auto'
+	alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
@@ -159,6 +159,16 @@ alias grep='grep --color=auto --extended-regexp'
 ##
 alias cp='cp --interactive'
 alias mv='mv --interactive'
+
+##
+## GCC
+##
+alias gcc='gcc -g -Wall'
+
+##
+## Neovide
+##
+alias vi='neovide'
 
 ###########################
 ####### ENVIRONMENT #######
@@ -288,3 +298,21 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export GOROOT=/home/aaron/environment/go
 export PATH="$PATH:$GOROOT/bin"
 export GOPATH=$HOME/go/lib:$HOME/go/work
+
+############################
+######### FUNCTION #########
+############################
+##
+## 1. Proxy
+##
+##function proxy_on() {
+##    export http_proxy=http://127.0.0.1:7897
+##    export https_proxy=\$http_proxy
+##    echo -e "终端代理已开启。"
+##}
+##
+##function proxy_off(){
+##    unset http_proxy https_proxy
+##    echo -e "终端代理已关闭。"
+##}
+
