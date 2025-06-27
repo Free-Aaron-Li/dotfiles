@@ -1,0 +1,9 @@
+---
+"terminal:focus_input": none
+"pane_group:add_right": ctrl-shift-W
+"workspace:new_tab": ctrl-shift-A
+"workspace:close_active_tab": ctrl-shift-X
+"workspace:activate_next_tab": ctrl-shift-L
+"terminal:select_all_blocks": none
+"pane_group:add_down": none
+"workspace:activate_prev_tab": ctrl-shift-H

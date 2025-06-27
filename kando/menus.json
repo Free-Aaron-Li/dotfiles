@@ -28,7 +28,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/home/aaron/applications/thunderbird/thunderbird"
+                  "command": "$HOME/applications/thunderbird/thunderbird"
                 },
                 "name": "雷鸟",
                 "icon": "mail",
@@ -326,7 +326,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/clion/bin/clion"
+                  "command": "$HOME/.local/share/JetBrains/Toolbox/apps/clion/bin/clion"
                 },
                 "name": "CLion",
                 "icon": "clion",
@@ -335,7 +335,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/datagrip/bin/datagrip.sh"
+                  "command": "$HOME/.local/share/JetBrains/Toolbox/apps/datagrip/bin/datagrip.sh"
                 },
                 "name": "DataGrip",
                 "icon": "datagrip",
@@ -344,7 +344,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin/idea"
+                  "command": "$HOME/.local/share/JetBrains/Toolbox/apps/intellij-idea-ultimate/bin/idea"
                 },
                 "name": "IDEA",
                 "icon": "intellijidea",
@@ -353,7 +353,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/android-studio/bin/studio"
+                  "command": "$HOME/.local/share/JetBrains/Toolbox/apps/android-studio/bin/studio"
                 },
                 "name": "Android Studio",
                 "icon": "androidstudio",
@@ -371,7 +371,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/home/aaron/environment/Qt/6.8.1/gcc_64/bin/assistant"
+                  "command": "$HOME/environment/Qt/6.8.1/gcc_64/bin/assistant"
                 },
                 "name": "Qt Assistant",
                 "icon": "assist_walker",
@@ -380,7 +380,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/home/aaron/environment/Qt/Tools/QtCreator/bin/qtcreator"
+                  "command": "$HOME/environment/Qt/Tools/QtCreator/bin/qtcreator"
                 },
                 "name": "Qt Creator",
                 "icon": "qt",
@@ -389,7 +389,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/home/aaron/.local/share/JetBrains/Toolbox/apps/webstorm/bin/webstorm"
+                  "command": "$HOME/.local/share/JetBrains/Toolbox/apps/webstorm/bin/webstorm"
                 },
                 "name": "WebStorm",
                 "icon": "webstorm",
@@ -398,7 +398,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": ".local/share/JetBrains/Toolbox/apps/pycharm-professional/bin/pycharm"
+                  "command": "$HOME/.local/share/JetBrains/Toolbox/apps/pycharm/bin/pycharm"
                 },
                 "name": "pycharm",
                 "icon": "pycharm",
