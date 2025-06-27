@@ -137,7 +137,7 @@ alias vide='neovide'
 ##
 ## Fix File name
 ##
-alias fn='/home/aaron/.files/script/fix_filename.sh'
+alias fn='/home/leorio/.files/script/fix_filename.sh'
 
 ##
 ## Zen Browser
@@ -166,9 +166,10 @@ alias mv='mv --interactive'
 alias gcc='gcc -g -Wall'
 
 ##
-## Neovide
+## Neovide && Neovim
 ##
-alias vi='neovide'
+alias vi='neovide --neovim-bin /opt/apps/io.neovim/files/usr/bin/nvim'
+alias nvim='/opt/apps/io.neovim/files/AppRun'
 
 ###########################
 ####### ENVIRONMENT #######
@@ -295,9 +296,16 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 ##
 ## 12. Go
 ##
-export GOROOT=/home/aaron/environment/go
+export GOROOT=/home/leorio/environment/go
 export PATH="$PATH:$GOROOT/bin"
 export GOPATH=$HOME/go/lib:$HOME/go/work
+
+##
+## 13. Python
+##
+export PIP_TARGET=/home/leorio/environment/venv/lib/python3.12/site-packages
+export PATH="/home/leorio/environment/venv/bin:$PATH"
+export PATH=/home/leorio/environment/venv/lib/python3.12/site-packages:$PATH
 
 ############################
 ######### FUNCTION #########
@@ -315,4 +323,3 @@ export GOPATH=$HOME/go/lib:$HOME/go/work
 ##    unset http_proxy https_proxy
 ##    echo -e "终端代理已关闭。"
 ##}
-

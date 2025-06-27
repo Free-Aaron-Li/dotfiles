@@ -1,8 +1,8 @@
 [Desktop Entry]
 Type=Application
-Name=Folo
+Name=Thunderbird
 GenericName=Thunderbird
-Exec=/home/aaron/applications/folo/Folo.AppImage
-Icon=/usr/share/icons/hicolor/256x256/apps/Folo.png
+Exec=/home/leorio/applications/thunderbird/thunderbird
+Icon=/home/leorio/.files/DESKTOP/icons/Thunderbird.png
 Categories=Network;
 Terminal=false

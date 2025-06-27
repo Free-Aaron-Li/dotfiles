@@ -34,7 +34,7 @@ BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBraces: Attach
 BreakConstructorInitializers: AfterColon
 BreakConstructorInitializersBeforeComma: false
-CommentPragmas: '^.*NOTE:.*$'
+CommentPragmas: "^.*NOTE:.*$"
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ConstructorInitializerIndentWidth: 4
 ContinuationIndentWidth: 4
@@ -42,23 +42,23 @@ Cpp11BracedListStyle: false
 ColumnLimit: 80
 IncludeBlocks: Preserve
 IncludeCategories:
-  - Regex: '^<.*'
+  - Regex: "^<.*"
     Priority: 1
   - Regex: '^".*'
     Priority: 2
-  - Regex: '.*'
+  - Regex: ".*"
     Priority: 3
-IncludeIsMainRegex: '([-_](test|unittest))?$'
+IncludeIsMainRegex: "([-_](test|unittest))?$"
 IndentCaseLabels: true
 IndentWidth: 4
 IndentWrappedFunctionNames: false
 InsertNewlineAtEOF: true
-MacroBlockBegin: ''
-MacroBlockEnd: ''
+MacroBlockBegin: ""
+MacroBlockEnd: ""
 MaxEmptyLinesToKeep: 2
 NamespaceIndentation: All
 PointerAlignment: Left
-ReflowComments: Always
+#ReflowComments: Always
 SpaceAfterCStyleCast: true
 SpaceAfterTemplateKeyword: false
 SpaceBeforeRangeBasedForLoopColon: false
