@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/home/leorio/.local/bin/neovide --neovim-bin /opt/apps/io.neovim/files/AppRun
+Exec=/home/leorio/.local/bin/neovide --neovim-bin /home/leorio/.local/bin/nvim
 Icon=/home/leorio/.files/DESKTOP/icons/neovide.png
 Name=neovide
 Comment=neovide

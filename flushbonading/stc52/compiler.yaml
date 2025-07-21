@@ -1,0 +1,35 @@
+compilers:
+  - description: SDCC for 8051
+    match-compiler-exe: "(.*/)?sdcc(.exe)?"
+    match-args: -mmcs51
+    match-language: C
+    include-dirs:
+      - ${project-path}/include
+      - ${compiler-exe-dir}/../share/sdcc/include/mcs51
+      - ${compiler-exe-dir}/../share/sdcc/include
+      - ${compiler-exe-dir}/../share/sdcc/non-free/include
+    defines-text: "
+    #define __SDCC_USE_NON_FREE 1
+    #define __SDCC_MCS51 1
+    #define __STC8G1K08A 1
+    #define __8051__ 1
+    #define __STDC_VERSION__ 201112L
+    #define __STDC_ISO_10646__ 201409L
+    #define __STDC_UTF_16__ 1
+    #define __STDC_UTF_32__ 1
+    #define __STDC__ 1
+    #define __SDCC 4_4_0
+    #define __SDCC_REVISION 14620
+    #define __SDCC_VERSION_MAJOR 4
+    #define __SDCC_VERSION_MINOR 4
+    #define __SDCC_VERSION_PATCH 0
+    #define __interrupt(vector)
+    #define __using(regnum)
+    #define __code
+    #define __at(addr)
+    #define __sfr
+    #define __sfr16
+    #define __sfr32
+    #define __sbit
+    #define __xdata
+    "

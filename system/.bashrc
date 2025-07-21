@@ -164,12 +164,18 @@ alias mv='mv --interactive'
 ## GCC
 ##
 alias gcc='gcc -g -Wall'
+alias g++='g++ -g -Wall -std=c++23'
 
 ##
 ## Neovide && Neovim
 ##
-alias vi='neovide --neovim-bin /opt/apps/io.neovim/files/usr/bin/nvim'
-alias nvim='/opt/apps/io.neovim/files/AppRun'
+alias vi='neovide --neovim-bin /home/leorio/.local/bin/nvim'
+alias neovim='/home/leorio/.local/bin/nvim'
+
+##
+## Python
+##
+alias pip='pipx'
 
 ###########################
 ####### ENVIRONMENT #######
@@ -184,14 +190,14 @@ export PATH=$HOME/.local/bin/:$PATH
 ##
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$("$HOME/environment/anaconda3/bin/conda" 'shell.bash' 'hook' 2>/dev/null)"
+__conda_setup="$('/home/leorio/environment/anaconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
 if [ $? -eq 0 ]; then
 	eval "$__conda_setup"
 else
-	if [ -f "$HOME/environment/anaconda3/etc/profile.d/conda.sh" ]; then
-		. "$HOME/environment/anaconda3/etc/profile.d/conda.sh"
+	if [ -f "/home/leorio/environment/anaconda3/etc/profile.d/conda.sh" ]; then
+		. "/home/leorio/environment/anaconda3/etc/profile.d/conda.sh"
 	else
-		export PATH="$HOME/environment/anaconda3/bin:$PATH"
+		export PATH="/home/leorio/environment/anaconda3/bin:$PATH"
 	fi
 fi
 unset __conda_setup
@@ -243,7 +249,7 @@ export NVM_DIR="$HOME/.config/nvm"
 ##
 ## 5. bin
 ##
-export PATH="$HOME/.local/share/../bin:$PATH"
+#export PATH="$HOME/.local/share/../bin:$PATH"
 
 ##
 ## 6. JDK
@@ -278,10 +284,16 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 ##
 export CC=$HOME/environment/gcc-15.1.0/bin/gcc
 export CXX=$HOME/environment/gcc-15.1.0/bin/g++
+export CMAKE_CXX_COMPILER=$HOME/environment/gcc-15.1.0/bin/g++
 export MY_GCC=$HOME/environment/gcc-15.1.0/
 export LD_LIBRARY_PATH="/home/aaron/environment/gcc-15.1.0/lib64:$LD_LIBRARY_PATH"
 export MY_GLIBC=$HOME/environment/glibc
-export PATH="/home/aaron/environment/gdb-16.3/bin:$PATH"
+export PATH="$HOME/environment/gcc-15.1.0/bin:$PATH"
+export PATH="$HOME/environment/gdb-16.3/bin:$PATH"
+
+## 9.1 Qt
+## Understand request
+export QT_PLUGIN_PATH=/home/leorio/applications/scitools/plugins
 
 ##
 ## 10. LLVM
@@ -299,13 +311,26 @@ export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 export GOROOT=/home/leorio/environment/go
 export PATH="$PATH:$GOROOT/bin"
 export GOPATH=$HOME/go/lib:$HOME/go/work
+export GOMODCACHE=/home/leorio/environment/go/lib/pkg/mod
 
 ##
 ## 13. Python
 ##
-export PIP_TARGET=/home/leorio/environment/venv/lib/python3.12/site-packages
-export PATH="/home/leorio/environment/venv/bin:$PATH"
-export PATH=/home/leorio/environment/venv/lib/python3.12/site-packages:$PATH
+#export PIP_TARGET=/home/leorio/environment/venv/lib/python3.12/site-packages
+#export PATH="/home/leorio/environment/venv/bin:$PATH"
+#export PATH=/home/leorio/environment/venv/lib/python3.12/site-packages:$PATH
+
+##
+## 14. xmake
+##
+test -f "/home/leorio/.xmake/profile" && source "/home/leorio/.xmake/profile"
+
+##
+## 15. Platformio
+##
+export PATH="/home/leorio/.platformio/penv/:$PATH"
+#export PATH="/home/leorio/.platformio/packages/tool-stcgal/bin/:$PATH"
+export PATH="/home/leorio/.platformio/packages/toolchain-sdcc/bin/:$PATH"
 
 ############################
 ######### FUNCTION #########

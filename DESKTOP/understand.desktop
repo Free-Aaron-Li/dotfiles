@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/leorio/applications/scitools/bin/linux64/understand
+Icon=/home/leorio/applications/scitools/bin/linux64/understand_64.png
+Name=Understand
+Categories=Development
