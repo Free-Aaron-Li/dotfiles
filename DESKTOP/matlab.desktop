@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Exec=/home/leorio/applications/MATLAB/R2025a/bin/matlab -desktop
+Icon=/home/leorio/.files/DESKTOP/icons/MatlabIcon.png
+Name=MATLAB
+Terminal=false  
+Path=/home/leorio/applications/MATLAB/R2025a/bin
+Comment=MATLAB2025a
+Categories=Development;
+StartupNotify=true

@@ -3,7 +3,7 @@
 theme = 'onedark'
 # 
 # The editor files will be opened with. (Leave blank to use the EDITOR environment variable).
-editor = '/opt/apps/io.neovim/files/AppRun'
+editor = 'nvim'
 # 
 # The editor directories will be opened with. (Leave blank to use the default editors).
 dir_editor = 'dde-file-manager'

@@ -1,19 +1,16 @@
+---
 Language: Cpp
 BasedOnStyle: Google
 AccessModifierOffset: -4
-AlignAfterOpenBracket: Align
-AlignConsecutiveAssignments: true
-AlignConsecutiveDeclarations: true
+AlignConsecutiveAssignments: false
+AlignConsecutiveDeclarations: false
 AlignOperands: true
-AlignTrailingComments: true
-AllowAllArgumentsOnNextLine: true
-AllowShortBlocksOnASingleLine: Never
+AlignTrailingComments: false
+AllowShortBlocksOnASingleLine: Empty
 AllowShortCaseLabelsOnASingleLine: true
 AllowShortFunctionsOnASingleLine: None
 AlwaysBreakAfterDefinitionReturnType: All
-AlwaysBreakAfterReturnType: AllDefinitions
-BinPackArguments: false
-BraceWrapping:
+BraceWrapping: 
   AfterCaseLabel: false
   AfterClass: false
   AfterControlStatement: false
@@ -27,38 +24,33 @@ BraceWrapping:
   BeforeElse: false
   BeforeLambdaBody: false
   BeforeWhile: false
-  SplitEmptyFunction: true
-  SplitEmptyRecord: true
-  SplitEmptyNamespace: true
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
 BreakBeforeBinaryOperators: NonAssignment
-BreakBeforeBraces: Attach
+BreakBeforeBraces: Custom
 BreakConstructorInitializers: AfterColon
 BreakConstructorInitializersBeforeComma: false
-CommentPragmas: "^.*NOTE:.*$"
+CommentPragmas: ^.*NOTE:.*$
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
-ConstructorInitializerIndentWidth: 4
-ContinuationIndentWidth: 4
+ContinuationIndentWidth: 8
 Cpp11BracedListStyle: false
-ColumnLimit: 80
 IncludeBlocks: Preserve
-IncludeCategories:
-  - Regex: "^<.*"
+IncludeCategories: 
+  - Regex: '^<.*'
     Priority: 1
   - Regex: '^".*'
     Priority: 2
-  - Regex: ".*"
+  - Regex: '.*'
     Priority: 3
-IncludeIsMainRegex: "([-_](test|unittest))?$"
-IndentCaseLabels: true
+IncludeIsMainRegex: '([-_](test|unittest))?$'
 IndentWidth: 4
-IndentWrappedFunctionNames: false
 InsertNewlineAtEOF: true
-MacroBlockBegin: ""
-MacroBlockEnd: ""
+MacroBlockBegin: ''
+MacroBlockEnd: ''
 MaxEmptyLinesToKeep: 2
 NamespaceIndentation: All
-PointerAlignment: Left
-#ReflowComments: Always
+PointerAlignment: Right
 SpaceAfterCStyleCast: true
 SpaceAfterTemplateKeyword: false
 SpaceBeforeRangeBasedForLoopColon: false
@@ -69,4 +61,4 @@ SpacesInConditionalStatement: false
 SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 TabWidth: 4
-UseTab: Never
+...
