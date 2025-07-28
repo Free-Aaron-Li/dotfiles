@@ -19,7 +19,7 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/usr/opt/apps/com.zen/files/squashfs-root/zen"
+                  "command": "/opt/apps/app.zen/files/squashfs-root/AppRun"
                 },
                 "name": "浏览器",
                 "icon": "globe",
@@ -28,9 +28,18 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "$HOME/applications/thunderbird/thunderbird"
+                  "command": "/opt/apps/is.folo/files/squashfs-root/AppRun"
                 },
-                "name": "雷鸟",
+                "name": "folo",
+                "icon": "folo",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "mailspring"
+                },
+                "name": "MailSpring",
                 "icon": "mail",
                 "iconTheme": "material-symbols-rounded"
               },
@@ -46,10 +55,10 @@
               {
                 "type": "command",
                 "data": {
-                  "command": "/opt/apps/com.logseq/files/squashfs-root/AppRun"
+                  "command": "/opt/Obsidian/obsidian"
                 },
-                "name": "Logseq",
-                "icon": "logseq",
+                "name": "Obsidian",
+                "icon": "obsidian",
                 "iconTheme": "simple-icons"
               },
               {
@@ -59,6 +68,15 @@
                 },
                 "name": "哔哩哔哩",
                 "icon": "bilibili",
+                "iconTheme": "simple-icons"
+              },
+              {
+                "type": "command",
+                "data": {
+                  "command": "/opt/qqmusic/qqmusic %U --no-sandbox"
+                },
+                "name": "QQ Music",
+                "icon": "monica",
                 "iconTheme": "simple-icons"
               }
             ]
