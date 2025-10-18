@@ -132,7 +132,7 @@ alias ls='lsd'
 ##
 ## Neovide
 ##
-alias vide='neovide'
+alias vide='neovide --fork'
 
 ##
 ## Fix File name
@@ -169,7 +169,7 @@ alias g++='g++ -g -Wall -std=c++23'
 ##
 ## Neovide && Neovim
 ##
-alias vi='neovide --neovim-bin /home/leorio/.local/bin/nvim'
+alias vi='neovide --neovim-bin /home/leorio/.local/bin/nvim --fork'
 alias neovim='/home/leorio/.local/bin/nvim'
 
 ##
@@ -331,6 +331,12 @@ test -f "/home/leorio/.xmake/profile" && source "/home/leorio/.xmake/profile"
 export PATH="/home/leorio/.platformio/penv/:$PATH"
 #export PATH="/home/leorio/.platformio/packages/tool-stcgal/bin/:$PATH"
 export PATH="/home/leorio/.platformio/packages/toolchain-sdcc/bin/:$PATH"
+
+##
+## 16. dotnet
+##
+export DOTNET_ROOT=$HOME/environment/dotnet/
+export PATH=$PATH:$HOME/environment/dotnet/
 
 ############################
 ######### FUNCTION #########
