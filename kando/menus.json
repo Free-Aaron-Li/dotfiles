@@ -1,9 +1,7 @@
 {
+  "version": "2.1.0",
   "menus": [
     {
-      "shortcut": "Control+Space",
-      "shortcutID": "example-menu",
-      "centered": false,
       "root": {
         "type": "submenu",
         "name": "菜单",
@@ -425,8 +423,23 @@
             ]
           }
         ]
-      }
+      },
+      "shortcut": "Control+Space",
+      "shortcutID": "example-menu",
+      "centered": false,
+      "anchored": false,
+      "hoverMode": false,
+      "tags": []
     }
   ],
-  "templates": []
+  "collections": [
+    {
+      "name": "Favorites",
+      "icon": "favorite",
+      "iconTheme": "material-symbols-rounded",
+      "tags": [
+        "favs"
+      ]
+    }
+  ]
 }

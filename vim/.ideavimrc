@@ -58,7 +58,7 @@ nnoremap <leader>; :
 inoremap <A-space> <Esc>
 vnoremap <A-space> <Esc>
 "2、空行
-nnoremap <CR> 4o<Esc>
+"nnoremap <CR> 4o<Esc>
 "3、方块移动
 nnoremap <S-v> <C-v>
 "4、短暂移动
@@ -66,9 +66,9 @@ nnoremap <S-v> <C-v>
 inoremap <A-h> <Left>
 inoremap <A-l> <Right>
 "4.2、行首行尾快速切换
-nnoremap <A-;> 0
-inoremap <A-;> <Esc>0i
-inoremap <A-'> <End>
+" nnoremap <A-;> 0
+" inoremap <A-;> <Esc>0i
+" inoremap <A-'> <End>
 "5、折叠
 "nnoremap <S-o> zfi{
 
@@ -113,9 +113,14 @@ nnoremap <leader>wk <C-w>k
 nnoremap <leader>wh <C-w>h
 nnoremap <leader>wl <C-w>l
 
-"------ 5. 跳转Tab ------
+"------ 5. 跳转 ------
+"5.1 跳转Tab
+
 nnoremap <C-l> gt
 nnoremap <C-h> gT
+
+"5.2 引用跳转
+nnoremap gf <C-o>
 
 "------ 6. vimrc文件 ------
 "1、编辑vimrc文件
@@ -156,7 +161,7 @@ inoremap <S-CR> <Esc>o
 " set keep-english-in-normal
 " 在normal模式保持英文状态,并在回到insert时恢复输入法到原来的状态.
 " 例如,编写一段中文注释,用中文输入法写了一段文字,进入normal模式移动光标到下一行,再回到插入模式继续使用中文编辑.
-set keep-english-in-normal-and-restore-in-insert
+" set keep-english-in-normal-and-restore-in-insert
 
 "------ 9. 打开帮助文档 ------
 " nnoremap <leader>hp :e /home/aaronLi/Documents/markdown文档/ideavim配置文件.md<CR>

@@ -1,0 +1,7 @@
+Copyright (C) 2024 Aaron <communicate_aaron@outlook.com>
+
+This is free stuff. You can use, change, or share it under the terms of 
+the GNU GPLv3 (or later). I'm sharing this hoping it'll be useful, 
+but there's no warranty at all—use it at your own risk.
+
+Check the full license here: <https://www.gnu.org/licenses/>

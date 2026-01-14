@@ -75,12 +75,12 @@ esac
 if [ -x /usr/bin/dircolors ]; then
 	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 	alias ls='ls --color=auto'
-	alias dir='dir --color=auto'
-	alias vdir='vdir --color=auto'
+	#alias dir='dir --color=auto'
+	#alias vdir='vdir --color=auto'
 
-	alias grep='grep --color=auto'
-	alias fgrep='fgrep --color=auto'
-	alias egrep='egrep --color=auto'
+	#alias grep='grep --color=auto'
+	#alias fgrep='fgrep --color=auto'
+	#alias egrep='egrep --color=auto'
 fi
 
 # colored GCC warnings and errors
@@ -117,77 +117,13 @@ else
 	eval $(dircolors)
 fi
 
-###########################
-########## ALIAS ##########
-###########################
-##
-## Delete Files
-##
-alias del='trash-put'
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-##
-## Show Files
-alias ls='lsd'
+#----------
+# 1. 环境变量
+#----------
 
-##
-## Neovide
-##
-alias vide='neovide --fork'
-
-##
-## Fix File name
-##
-alias fn='/home/leorio/.files/script/fix_filename.sh'
-
-##
-## Zen Browser
-##
-alias zen='/opt/apps/app.zen-browser/files/AppRun'
-
-##
-## All list
-##
-alias lsa='ls -ahil'
-
-##
-## grep
-##
-alias grep='grep --color=auto --extended-regexp'
-
-##
-## Interactively copy and move
-##
-alias cp='cp --interactive'
-alias mv='mv --interactive'
-
-##
-## GCC
-##
-alias gcc='gcc -g -Wall'
-alias g++='g++ -g -Wall -std=c++23'
-
-##
-## Neovide && Neovim
-##
-alias vi='neovide --neovim-bin /home/leorio/.local/bin/nvim --fork'
-alias neovim='/home/leorio/.local/bin/nvim'
-
-##
-## Python
-##
-alias pip='pipx'
-
-###########################
-####### ENVIRONMENT #######
-###########################
-##
-## 0. Bin
-##
-export PATH=$HOME/.local/bin/:$PATH
-
-##
-## 1. Anaconda
-##
+# 1. conda
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/leorio/environment/anaconda3/bin/conda' 'shell.bash' 'hook' 2>/dev/null)"
@@ -203,9 +139,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-##
-## 2. Superfile
-##
+# 2. superfile
 spf() {
 	os=$(uname -s)
 
@@ -227,130 +161,85 @@ spf() {
 	}
 }
 
-##
-## 3. Qt
-##
-export QTDIR=$HOME/environment/Qt/6.9.0/
-export PATH=$HOME/environment/Qt/6.9.0/gcc_64:$PATH
-export PATH=$HOME/environment/Qt/6.9.0/gcc_64/bin:$PATH
+# 3. Python
+export PATH="/home/leorio/environment/miniconda3/bin:$PATH"
+
+# 4. Drogon
+export PATH="/home/leorio/environment/drogon/bin:$PATH"
+
+# 5. local bin
+export PATH="/home/leorio/.local/bin:$PATH"
+
+# 6. Qt
+#export QT_QPA_PLATFORM=xcb
+export QT_HOME=/home/leorio/environment/qt/6.10.1/gcc_64
+export QT6_DIR=QT_HOME
+export PATH=$QT_HOME/bin:$PATH
+export CMAKE_PREFIX_PATH=$QT_HOME:$CMAKE_PREFIX_PATH
+export LD_LIBRARY_PATH=$QT_HOME/lib:$LD_LIBRARY_PATH
+export QTDIR=$QT_HOME
+export QT_PLUGIN_PATH=$QT_HOME/plugins
+export QML_IMPORT_PATH=$QT_HOME/qml
+export QML2_IMPORT_PATH=$QT_HOME/qml
 export QT_QPA_PLATFORM=xcb
 
-# 解决：KMS: DRM_IOCTL_MODE_CREATE_DUMB failed
-# readest 应用问题
-export WEBKIT_DISABLE_DMABUF_RENDERER=1
+# 7. Work Env path
+export myenv=/home/leorio/environment
+export mysrc=/home/leorio/source
+export mydl=/home/leorio/Downloads
 
-##
-## 4. NVM
-##
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+# 8. Zoxide
+export _ZO_DOCTOR=0
 
-##
-## 5. bin
-##
-#export PATH="$HOME/.local/share/../bin:$PATH"
+# 9. Vulkan
+export VULKAN_SDK=/home/leorio/environment/VulkanSDK/1.4.335.0/x86_64
+export PATH=$VULKAN_SDK/bin:$PATH
+export LD_LIBRARY_PATH=$VULKAN_SDK/lib:$LD_LIBRARY_PATH
+export C_INCLUDE_PATH=$VULKAN_SDK/include:$C_INCLUDE_PATH
+export CPLUS_INCLUDE_PATH=$VULKAN_SDK/include:$CPLUS_INCLUDE_PATH
 
-##
-## 6. JDK
-##
-export JAVA_HOME=$HOME/environment/jdk
-export PATH=$JAVA_HOME/bin:$PATH
+# 10. Valgrind
+export VALGRIND_HOME=/home/leorio/applications/valgrind
+export PATH=$VALGRIND_HOME/bin:$PATH
+export VALGRIND_LIB=$VALGRIND_HOME/libexec/valgrind
 
-##
-## 7. Flutter
-##
-export FLUTTER_HOME=$HOME/environment/flutter
-export PATH=$FLUTTER_HOME/bin:$PATH
-## 7.1 Flutter Pub 源
-export PUB_HOSTED_URL="https://pub.flutter-io.cn"
-export FLUTTER_STORAGE_BASE_URL="https://storage.flutter-io.cn"
-## 7.2 Dart
-export PATH=$PATH:$HOME/environment/flutter/bin
+#----------
+# 2. 别名
+#----------
 
-##
-## 8. Android
-##
-export ANDROID_HOME=$HOME/environment/Android/Sdk
-export PATH=$ANDROID_HOME:$PATH
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/build-tools/34.0.0
-export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin
-export PATH=$PATH:$ANDROID_HOME/ndk
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+# 1. Neovim & Nevide
+alias nv='neovide'    # nvim
 
-##
-## 9. C/C++ Toolkit
-##
-export CC=$HOME/environment/gcc-15.1.0/bin/gcc
-export CXX=$HOME/environment/gcc-15.1.0/bin/g++
-export CMAKE_CXX_COMPILER=$HOME/environment/gcc-15.1.0/bin/g++
-export MY_GCC=$HOME/environment/gcc-15.1.0/
-export LD_LIBRARY_PATH="/home/aaron/environment/gcc-15.1.0/lib64:$LD_LIBRARY_PATH"
-export MY_GLIBC=$HOME/environment/glibc
-export PATH="$HOME/environment/gcc-15.1.0/bin:$PATH"
-export PATH="$HOME/environment/gdb-16.3/bin:$PATH"
+# 2. Delete
+alias del='trash-put' # trash
 
-## 9.1 Qt
-## Understand request
-export QT_PLUGIN_PATH=/home/leorio/applications/scitools/plugins
+# 3. eza
+# 3.1 默认显示 icons： 
+alias ls="eza --icons"
+# 3.2 显示文件目录详情
+alias ll="eza --icons --long --header"
+# 3.3 显示全部文件目录，包括隐藏文件
+alias la="eza --icons --long --header --all"
+# 3.4 显示详情的同时，附带 git 状态信息
+alias lg="eza --icons --long --header --all --git"
+# 3.5 替换 tree 命令
+alias tree="eza --tree --icons"
+# 3.6 Mariadb
+alias mariadb="sudo docker exec -it mariadb mariadb -u root -p"
+# 3.7 复制至剪贴板
+alias xc="xclip -selection clipboard"
 
-##
-## 10. LLVM
-##
-export PATH=$HOME/environment/LLVM-20.1.3-Linux-X64/bin:$PATH
+#----------
+# 3. 启动项
+#----------
 
-##
-## 11. Neovim
-##
-export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+# 1. 关闭蜂鸣
+xset b off
 
-##
-## 12. Go
-##
-export GOROOT=/home/leorio/environment/go
-export PATH="$PATH:$GOROOT/bin"
-export GOPATH=$HOME/go/lib:$HOME/go/work
-export GOMODCACHE=/home/leorio/environment/go/lib/pkg/mod
+# 2. zoxide
+eval "$(zoxide init bash)"
 
-##
-## 13. Python
-##
-#export PIP_TARGET=/home/leorio/environment/venv/lib/python3.12/site-packages
-#export PATH="/home/leorio/environment/venv/bin:$PATH"
-#export PATH=/home/leorio/environment/venv/lib/python3.12/site-packages:$PATH
-
-##
-## 14. xmake
-##
+# 3.xmake
+# >>> xmake >>>
 test -f "/home/leorio/.xmake/profile" && source "/home/leorio/.xmake/profile"
-
-##
-## 15. Platformio
-##
-export PATH="/home/leorio/.platformio/penv/:$PATH"
-#export PATH="/home/leorio/.platformio/packages/tool-stcgal/bin/:$PATH"
-export PATH="/home/leorio/.platformio/packages/toolchain-sdcc/bin/:$PATH"
-
-##
-## 16. dotnet
-##
-export DOTNET_ROOT=$HOME/environment/dotnet/
-export PATH=$PATH:$HOME/environment/dotnet/
-
-############################
-######### FUNCTION #########
-############################
-##
-## 1. Proxy
-##
-##function proxy_on() {
-##    export http_proxy=http://127.0.0.1:7897
-##    export https_proxy=\$http_proxy
-##    echo -e "终端代理已开启。"
-##}
-##
-##function proxy_off(){
-##    unset http_proxy https_proxy
-##    echo -e "终端代理已关闭。"
-##}
+# <<< xmake <<<
