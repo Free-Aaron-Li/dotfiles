@@ -1,10 +1,11 @@
 [Desktop Entry]
 Type=Application
 Exec=/home/leorio/applications/MATLAB/R2025a/bin/matlab -desktop
-Icon=/home/leorio/.files/DESKTOP/icons/MatlabIcon.png
 Name=MATLAB
-Terminal=false  
-Path=/home/leorio/applications/MATLAB/R2025a/bin
-Comment=MATLAB2025a
-Categories=Development;
+Version=R2025a
+GenericName=Powerful programming and numeric computing environment.
+Icon=/home/leorio/applications/MATLAB/R2025a/toolbox/shared/dastudio/resources/MatlabIcon.png
 StartupNotify=true
+StartupWMClass=com-mathworks-util-PostVMInit
+Categories=Math;Science;IDE;Development;
+
