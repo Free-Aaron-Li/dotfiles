@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Folo
-Exec=/home/aaron/applications/folo/Folo.AppImage
-Icon=/home/aaron/applications/folo/Folo.png
+Exec=/home/leorio/applications/folo/folo.AppImage --appimage-extract-and-run %U
+Icon=/home/leorio/.files/DESKTOP/icons/folo.png
 Categories=Network;
 Terminal=false

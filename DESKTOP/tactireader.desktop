@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=TactiReader
+Comment=tacti reader
+GenericName=TactiReader
+Exec=/home/leorio/applications/tactireader/TactiReader
+Icon=/home/leorio/.files/DESKTOP/icons/tactireader.jpg
+Categories=office;
+Terminal=false
