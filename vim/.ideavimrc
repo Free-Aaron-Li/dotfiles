@@ -71,6 +71,8 @@ inoremap <A-l> <Right>
 " inoremap <A-'> <End>
 "5、折叠
 "nnoremap <S-o> zfi{
+"6、长距离移动
+inoremap <C-u> <Esc>20ka<CR>
 
 "------ 2. 搜索 -------
 "1、不高亮搜索内容
@@ -86,8 +88,8 @@ nnoremap <leader>nh :nohlsearch<CR>
 
 
 "------ 3. 快速移动 ------
-nnoremap <Leader>j 10j
-nnoremap <Leader>k 10k
+nnoremap <Leader>n 20j
+nnoremap <Leader>u 20k
 nnoremap <Leader>h 15h
 nnoremap <Leader>l 15l
 
