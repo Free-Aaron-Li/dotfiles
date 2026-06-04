@@ -126,7 +126,9 @@ set noerrorbells visualbell t_vb=
 set nocompatible
 
 
-
+""" Clipboard
+set clipboard=unnamed,unnamedplus
+set mouse=a
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
