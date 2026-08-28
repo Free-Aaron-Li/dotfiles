@@ -1,12 +1,12 @@
 " 退出方式
-imap <A-Space> <Esc>
-vmap <A-Space> <Esc>
+imap <M-Space> <Esc>
+vmap <M-Space> <Esc>
 
-" 光标移动
-imap <A-h> <Esc>i
-imap <A-l> <Esc>la
-imap <A-j> <Esc>ji
-imap <A-k> <Esc>ki
+" 光标移动（插入模式下使用 Option+hjkl 移动）
+imap <M-h> <Left>      " 向左移动一个字符
+imap <M-l> <Right>     " 向右移动一个字符
+imap <M-j> <Down>      " 向下移动一行
+imap <M-k> <Up>        " 向上移动一行
 
 " 行首行尾移动
 nmap <A-;> 0
@@ -19,5 +19,3 @@ imap <S-CR> <Esc>o
 
 " 连接系统剪贴板
 set clipboard=unnamed
-
-" 命令模式输入法切换
