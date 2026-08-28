@@ -272,3 +272,5 @@ noremap <leader><leader>gi :action ActivateVersionControlToolWindow<CR>
 noremap <leader><leader>xm :action ActivateXMakeToolWindow<CR>
 " 打开 statistic
 noremap <leader><leader>st :action ActivateStatisticToolWindow<CR>
+" 打开 Junie
+noremap <leader><leader>ju :action ActivateElectroJunToolWindowToolWindow<CR>

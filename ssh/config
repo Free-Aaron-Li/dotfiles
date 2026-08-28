@@ -1,12 +1,95 @@
-Host *
-  UseKeychain yes
-  AddKeysToAgent yes
+# ================================================================
+# SSH 客户端全局配置文件 (~/.ssh/config)
+# 适用于 macOS（已适配钥匙串和 Clash 代理）
+# ================================================================
 
-Host github.com
-    HostName ssh.github.com
-    User git
-    Port 443
-    IdentityFile ~/.ssh/id_ed25519
-    TCPKeepAlive yes
-    ServerAliveInterval 30
+# ---------- 全局默认设置（适用于所有 Host） ----------
+Host *
+    # ----- 钥匙串自动填充私钥密码（macOS 专有） -----
+    # 开启后，SSH 会从 macOS 钥匙串中读取私钥密码，无需手动输入
+    UseKeychain yes
+    # 自动将密钥添加到 ssh-agent，配合 UseKeychain 实现持久化
+    AddKeysToAgent yes
+
+    # ----- SSH 连接复用（减少重复认证） -----
+    # 第一次连接时建立主连接，后续会话复用，大幅提升速度
+    ControlMaster auto
+    # 控制套接字存放目录（需要先创建该目录）
+    ControlPath ~/.ssh/controlmasters/%r@%h:%p
+    # 主连接保持 10 分钟空闲，超时后自动关闭
+    ControlPersist 10m
+
+    # ----- 保持连接活跃（防止因超时断开） -----
+    # 每 60 秒发送一次保活包
+    ServerAliveInterval 60
+    # 最多尝试 3 次，若仍未响应则断开
     ServerAliveCountMax 3
+
+    # ----- 网络优化 -----
+    # 启用压缩，对慢速网络有帮助（但会消耗 CPU）
+    Compression yes
+    # 启用 TCP KeepAlive
+    TCPKeepAlive yes
+
+    # ----- 安全性 -----
+    # 首次连接时严格检查主机密钥
+    StrictHostKeyChecking yes
+
+    # ----- 默认私钥（可选） -----
+    # 如果你只有一个私钥，可以在这里指定；若有多个，建议在各个 Host 中分别指定
+    # IdentityFile ~/.ssh/id_ed25519
+
+# ---------- GitHub 专用配置（代理 + 密钥） ----------
+Host github.com
+    # 实际主机名
+    HostName github.com
+    # 连接用户（GitHub 要求为 git）
+    User git
+
+    # ----- 指定私钥（请根据你的实际情况修改路径） -----
+    # 如果是 ED25519 密钥
+    # IdentityFile ~/.ssh/id_ed25519
+    # 如果是 RSA 密钥（如果同时存在，注释掉上面，启用下面）
+    IdentityFile ~/.ssh/id_rsa
+
+    # 继承全局的 UseKeychain / AddKeysToAgent
+    # （无需重复写，但也可以显式写上以强调）
+    UseKeychain yes
+    AddKeysToAgent yes
+
+    # ----- Clash SOCKS5 代理（核心，解决 TUN 模式问题） -----
+    # 使用 nc 通过 SOCKS5 代理连接（确保 Clash 已开启 SOCKS5）
+    # 如果你的 SOCKS5 端口不是 7890，请修改 -x 后面的值
+    ProxyCommand nc -X 5 -x 127.0.0.1:7897 %h %p
+
+    # 备选：如果使用 HTTP 代理（Clash 也支持），将 -X 5 改为 -X connect
+    # ProxyCommand nc -X connect -x 127.0.0.1:7890 %h %p
+
+    # 若代理需要用户名/密码（极少见），添加 -P 参数
+    # ProxyCommand nc -X 5 -x 127.0.0.1:7890 -P user:pass %h %p
+
+    # 如果使用 ncat（通过 brew install nmap 安装），可以改用：
+    # ProxyCommand ncat --proxy-type socks5 --proxy 127.0.0.1:7890 %h %p
+
+    # ----- 超时设置 -----
+    ConnectTimeout 10
+
+# ---------- 其他常见平台示例（按需启用） ----------
+# 如果你也使用 GitLab 或 Bitbucket，可以复制并修改 Host 和 HostName
+# Host gitlab.com
+#     HostName gitlab.com
+#     User git
+#     IdentityFile ~/.ssh/id_ed25519
+#     UseKeychain yes
+#     AddKeysToAgent yes
+#     ProxyCommand nc -X 5 -x 127.0.0.1:7890 %h %p
+#     ConnectTimeout 10
+
+# Host bitbucket.org
+#     HostName bitbucket.org
+#     User git
+#     IdentityFile ~/.ssh/id_ed25519
+#     UseKeychain yes
+#     AddKeysToAgent yes
+#     ProxyCommand nc -X 5 -x 127.0.0.1:7890 %h %p
+#     ConnectTimeout 10
