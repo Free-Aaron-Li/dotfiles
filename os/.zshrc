@@ -28,6 +28,15 @@ export VCPKG_DEFAULT_TRIPLET=arm64-osx-gcc16
 export VCPKG_OVERLAY_TRIPLETS="$HOME/.vcpkg-overlay-triplets"
 ## 1.11 Qt
 export QT_ROOT="$HOME/env/qt/6.11.2/macos"
+## 1.12 deepseek harness
+export MINERU_API_KEY='sk-REMOVED-BY-PURGE'
+## 1.13 pip venv
+source /Users/lijc/env/.venv/bin/activate
+export PATH=/Users/lijc/env/.venv/bin:$PATH
+## 1.14 clash verge
+export HTTP_PROXY=http://127.0.0.1:7897
+export HTTPS_PROXY=http://127.0.0.1:7897
+export NODE_USE_ENV_PROXY=1
 
 
 #################
@@ -77,6 +86,14 @@ export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 export JAVA_HOME="/opt/homebrew/opt/openjdk"
 export PATH="$JAVA_HOME/bin:$PATH"
+## 5. pnpm
+# pnpm
+export PNPM_HOME="/Users/lijc/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
 
 ####################
 ##### FUNCTION #####
@@ -331,4 +348,92 @@ function easytier-restart() {
     easytier-stop
     sleep 1
     easytier-start
+}
+
+##########################################################
+# Hindsight 本地 daemon LLM 配置（DeepSeek）——2026-08-30 配置
+export HINDSIGHT_API_LLM_PROVIDER=deepseek
+export HINDSIGHT_API_LLM_API_KEY=sk-REMOVED-BY-PURGE
+
+##########################################################
+# 在 ~/.zshrc 中定义虚拟环境路径（根据你的实际路径修改）
+# 这里假设你的虚拟环境在 $HOME/env/.venv （绝对路径）
+# 如果你的路径不同，请修改下面的 DSH_VENV_PATH
+DSH_VENV_PATH="$HOME/env/.venv"   # 例如 /Users/lijc/env/.venv
+
+# ============================================================
+# dsh web 托管：launchd LaunchAgent（com.user.dsh-web）——2026-09-04
+# 背景：旧 dp-start 用 nohup & 从终端启动，ghostty 退出即带走 harness
+#      （nohup 防不住 dsh 派生的 node 子进程 SIGHUP）。
+# 现方案：launchd 完全后台托管 + KeepAlive 崩溃自启，脱离一切终端。
+# plist: ~/Library/LaunchAgents/com.user.dsh-web.plist
+# 包装:  ~/.local/bin/dsh-web.sh（日志 /tmp/dsh-web.log）
+DSH_WEB_LABEL="com.user.dsh-web"
+DSH_WEB_PLIST="$HOME/Library/LaunchAgents/com.user.dsh-web.plist"
+
+function dp-start() {
+    # 若旧式 PID 文件残留（迁移前），清理掉
+    [[ -f "$HOME/.dsh-web.pid" ]] && rm -f "$HOME/.dsh-web.pid"
+    if launchctl print "gui/$(id -u)/$DSH_WEB_LABEL" >/dev/null 2>&1; then
+        echo "⚠️  launchd 已托管 dsh web，执行重启 (kickstart -k)..."
+        launchctl kickstart -k "gui/$(id -u)/$DSH_WEB_LABEL"
+    else
+        echo "🚀 launchd 加载并启动 dsh web..."
+        launchctl bootstrap "gui/$(id -u)" "$DSH_WEB_PLIST" 2>/dev/null \
+            || launchctl enable "gui/$(id -u)/$DSH_WEB_LABEL"
+        launchctl kickstart "gui/$(id -u)/$DSH_WEB_LABEL"
+    fi
+    sleep 2
+    dp-status
+}
+
+function dp-stop() {
+    if launchctl print "gui/$(id -u)/$DSH_WEB_LABEL" >/dev/null 2>&1; then
+        echo "🛑 卸载 launchd 托管 (bootout) dsh web..."
+        launchctl bootout "gui/$(id -u)/$DSH_WEB_LABEL" 2>/dev/null \
+            || launchctl disable "gui/$(id -u)/$DSH_WEB_LABEL"
+        # 保险：补杀残留的 dsh/node 监听 3080 进程
+        local leftovers=$(lsof -tiTCP:3080 -sTCP:LISTEN 2>/dev/null)
+        if [[ -n "$leftovers" ]]; then
+            echo "  补杀残留进程: $leftovers"
+            kill -9 $leftovers 2>/dev/null
+        fi
+        echo "✅ 已停止"
+    else
+        echo "⚠️  launchd 未托管 dsh web（可能未启动）"
+    fi
+}
+
+function dp-status() {
+    if launchctl print "gui/$(id -u)/$DSH_WEB_LABEL" >/dev/null 2>&1; then
+        local pid=$(launchctl print "gui/$(id -u)/$DSH_WEB_LABEL" 2>/dev/null | awk '/pid =/{print $3; exit}')
+        echo "✅ dsh web 由 launchd 托管中 (PID: ${pid:-?})，日志: /tmp/dsh-web.log"
+    else
+        echo "❌ dsh web 未托管运行 —— 执行 dp-start"
+    fi
+}
+
+##########################################################
+# dsh 远程转发：easytier 虚拟 IP:3080 → 本机 127.0.0.1:3080（手机远程操控 DSH）——2026-08-30
+function fwd-start() {
+    if [[ -f /tmp/dsh-fwd.pid ]] && kill -0 $(cat /tmp/dsh-fwd.pid) 2>/dev/null; then
+        echo "转发器已在运行 (PID: $(cat /tmp/dsh-fwd.pid))"; return 1
+    fi
+    nohup python3 ~/.local/bin/dsh-remote-fwd.py 10.10.10.22 3080 3080 > /tmp/dsh-fwd.log 2>&1 &
+    echo $! > /tmp/dsh-fwd.pid
+    echo "✅ dsh 远程转发已启动 (10.10.10.22:3080 -> 127.0.0.1:3080, PID: $!)"
+}
+function fwd-stop() {
+    if [[ -f /tmp/dsh-fwd.pid ]]; then
+        kill $(cat /tmp/dsh-fwd.pid) 2>/dev/null; rm -f /tmp/dsh-fwd.pid; echo "已停止"
+    else echo "无 PID 文件"; fi
+}
+
+##########################################################
+# dsh 插件安全更新（本地隔离测试版）——2026-09-04
+# dp-update          交互式检查+隔离测试+更新
+# dp-update --auto   全自动（供 launchd 每日调用）
+# dp-update --check  只检测新版本
+function dp-update() {
+    bash ~/.local/bin/dsh-plugin-updater.sh "${1:-}"
 }
