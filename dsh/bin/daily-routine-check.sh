@@ -69,5 +69,50 @@ else
     echo "- ✅ mole：无 sudo 待办" >> "$ROUTINE"
 fi
 
+echo "" >> "$ROUTINE"
+echo "## 🤖 Hindsight 本地 AI 监测" >> "$ROUTINE"
+
+# 1. daemon 健康
+if curl -s -m 4 http://127.0.0.1:9077/health 2>/dev/null | grep -q healthy; then
+    echo "- ✅ daemon：健康" >> "$ROUTINE"
+else
+    echo "- ❌ daemon：**不健康/未运行** → 需立即处理（launchctl kickstart com.user.hindsight.daemon）" >> "$ROUTINE"
+fi
+
+# 2. 最近 retain 路由检查（retain 必须走本地 ollama，禁 deepseek）
+RET=$(curl -s -m 8 "http://127.0.0.1:9077/v1/default/banks/coding-agent::ecas/llm-requests?limit=200" 2>/dev/null | python3 -c "
+import sys, json
+try:
+    d = json.load(sys.stdin)
+    retains = [it for it in d.get('items', []) if it.get('operation') == 'retain']
+    if not retains:
+        print('NO_RETAIN')
+        sys.exit()
+    # 取最新一条 success retain 的路由
+    latest_ok = next((it for it in retains if it.get('status') == 'success'), None)
+    if not latest_ok:
+        print('NO_SUCCESS')
+        sys.exit()
+    print(latest_ok.get('provider') + '/' + latest_ok.get('model'))
+except Exception:
+    print('ERR')
+" 2>/dev/null)
+if [[ "$RET" == "NO_RETAIN" || "$RET" == "NO_SUCCESS" ]]; then
+    echo "- ⏳ retain：近期无成功记录（任务量少属正常；有失败会单独提示）" >> "$ROUTINE"
+elif [[ "$RET" == "ERR" || -z "$RET" ]]; then
+    echo "- ⚠️ retain：路由查询失败" >> "$ROUTINE"
+elif echo "$RET" | grep -q "ollama"; then
+    echo "- ✅ retain 走本地：$RET" >> "$ROUTINE"
+else
+    echo "- ❌ retain 走 $RET → **本地 AI 失效，烧 token！** 需排查（uv tool list / ollama / daemon 日志）" >> "$ROUTINE"
+fi
+
+# 3. 二进制存在性（防 uv cache 被清事故重演）
+if [[ -x "$HOME/.local/bin/hindsight-api" ]]; then
+    echo "- ✅ hindsight-api 二进制：就位（~/.local/bin）" >> "$ROUTINE"
+else
+    echo "- ❌ hindsight-api 二进制缺失 → 需 uv tool install hindsight-api" >> "$ROUTINE"
+fi
+
 # 输出供 agent 读取
 cat "$ROUTINE"
