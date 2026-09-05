@@ -107,7 +107,56 @@ else
     echo "- ❌ retain 走 $RET → **本地 AI 失效，烧 token！** 需排查（uv tool list / ollama / daemon 日志）" >> "$ROUTINE"
 fi
 
-# 3. 二进制存在性（防 uv cache 被清事故重演）
+# 3. 全面路由 + token 消耗检查（2026-09-05 加：防 mental model/reflect 烧钱）
+ROUTE=$(curl -s -m 8 "http://127.0.0.1:9077/v1/default/banks/coding-agent::ecas/llm-requests?limit=200" 2>/dev/null | python3 -c "
+import sys, json
+try:
+    d = json.load(sys.stdin)
+    import datetime
+    items = d.get('items', [])
+    # 只看最近 30 分钟内调用（避免修复前历史记录误报）
+    cutoff = (datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(minutes=10)).isoformat()
+    items = [it for it in items if it.get('started_at','') > cutoff][:50]
+    from collections import defaultdict
+    hot = defaultdict(lambda: {'n':0,'tin':0})
+    for it in items:
+        op = it.get('operation','?')
+        prov = it.get('provider')
+        if op in ('retain','refresh_mental_model','mental_model_delta_ops') and prov == 'deepseek' and it.get('status') == 'success':
+            hot[op]['n'] += 1
+            hot[op]['tin'] += it.get('input_tokens') or 0
+    if not hot:
+        print('CLEAN')
+    else:
+        for op, a in hot.items():
+            print(f'{op}:{a[\"n\"]}次/{a[\"tin\"]}tok')
+except Exception:
+    print('ERR')
+" 2>/dev/null)
+if [[ "$ROUTE" == "CLEAN" ]]; then
+    echo "- ✅ 路由健康：retain/mental/reflect 近 200 条无 deepseek" >> "$ROUTINE"
+elif [[ "$ROUTE" == "ERR" ]]; then
+    echo "- ⚠️ 路由全面检查失败" >> "$ROUTINE"
+else
+    echo "- ❌ 检测到 deepseek 混用：$ROUTE → **烧 token！** 查 mental model 节流/reflect 配置" >> "$ROUTINE"
+fi
+
+# 4. 今日 deepseek token 消耗趋势（对比昨日）
+DS_TODAY=$(curl -s -m 8 "http://127.0.0.1:9077/v1/default/banks/coding-agent::ecas/llm-requests/stats" 2>/dev/null | python3 -c "
+import sys, json
+try:
+    d = json.load(sys.stdin)
+    buckets = d.get('buckets', [])
+    if buckets:
+        last = buckets[-1]
+        print(f\"{last.get('time','')[:10]} in={last.get('tokens',{}).get('input',0):,}\")
+except Exception: pass
+" 2>/dev/null)
+if [[ -n "$DS_TODAY" ]]; then
+    echo "- 📊 最近统计：$DS_TODAY（input tokens，deepseek 大头；应随节流下降）" >> "$ROUTINE"
+fi
+
+# 5. 二进制存在性（防 uv cache 被清事故重演）
 if [[ -x "$HOME/.local/bin/hindsight-api" ]]; then
     echo "- ✅ hindsight-api 二进制：就位（~/.local/bin）" >> "$ROUTINE"
 else
