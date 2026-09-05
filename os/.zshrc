@@ -437,3 +437,27 @@ function fwd-stop() {
 function dp-update() {
     bash ~/.local/bin/dsh-plugin-updater.sh "${1:-}"
 }
+
+##########################################################
+# Mac 系统定期维护（mole CLI）——2026-09-05
+# mole-maintain           完整一轮（健康+清理+优化，无 sudo 部分）
+# mole-maintain --check   只记录健康状态
+# mole-maintain --sudo    sudo 完全体（先 sudo -v 输密码再跑；密码绝不保存）
+# launchd com.user.mole-maintain 每周日 04:00 自动跑（sudo 部分会话中提醒）
+function mole-maintain() {
+    ~/.local/bin/mole-maintain "${1:-full}"
+}
+
+
+# dsh web token 访问（0.1.2+ 每次启动生成新 token；首次带 token 访问种 30 天 cookie）
+# 用法：dp-token        # 取当前 token 并在浏览器打开（之后 30 天直接访问即可）
+function dp-token() {
+    local url
+    url=$(grep -oE 'http://127.0.0.1:3080/\?token=[A-Za-z0-9_-]+' /tmp/dsh-web.log 2>/dev/null | tail -1)
+    if [[ -z "$url" ]]; then
+        echo "❌ 未找到 token URL（dsh web 是否在运行？日志: /tmp/dsh-web.log）"
+        return 1
+    fi
+    open "$url"
+    echo "✅ 已用 token 打开（种 30 天 cookie）: ${url:0:50}..."
+}
