@@ -69,6 +69,19 @@ else
     echo "- ✅ mole：无 sudo 待办" >> "$ROUTINE"
 fi
 
+# 🔄 重启提醒（2026-09-06 加：uptime >10 天或 WindowServer 高占用时提醒）
+RESTART_HINT=""
+UPTIME_DAYS=$(uptime 2>/dev/null | sed -E 's/.*up ([0-9]+) days.*/\1/' | grep -E '^[0-9]+$' || echo 0)
+# WindowServer CPU 采样（ps 可用时）
+WS_CPU=$(ps -eo pcpu,comm 2>/dev/null | awk '/WindowServer/ {print int($1); exit}')
+if [[ "$UPTIME_DAYS" -ge 10 ]] || { [[ -n "$WS_CPU" ]] && [[ "$WS_CPU" -ge 30 ]]; }; then
+    RESTART_HINT="⚠️ 建议重启：已运行 ${UPTIME_DAYS} 天"
+    [[ -n "$WS_CPU" && "$WS_CPU" -ge 30 ]] && RESTART_HINT="${RESTART_HINT}，WindowServer ${WS_CPU}% CPU（桌面合成负担）"
+    echo "- ${RESTART_HINT} → 找合适时机重启 Mac（launchd 服务会自动恢复）" >> "$ROUTINE"
+else
+    echo "- ✅ 系统运行健康：uptime ${UPTIME_DAYS} 天，WindowServer ${WS_CPU:-?}% CPU" >> "$ROUTINE"
+fi
+
 echo "" >> "$ROUTINE"
 echo "## 🤖 Hindsight 本地 AI 监测" >> "$ROUTINE"
 
