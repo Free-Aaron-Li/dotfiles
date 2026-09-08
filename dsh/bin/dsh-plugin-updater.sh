@@ -180,7 +180,7 @@ if [[ -n "$(ls "$SNAP" 2>/dev/null)" ]]; then
         nohup bash -c "sleep 3 && launchctl kickstart -k gui/\$(id -u)/$LABEL" > /tmp/dsh-restart.log 2>&1 &
         log "  重启已调度，健康检查延迟进行"
         # 延迟健康检查（重启后 12s 检查）
-        nohup bash -c "sleep 15; code=\$(curl -s -m 5 -o /dev/null -w '%{http_code}' http://127.0.0.1:3080 2>/dev/null); if echo \"\$code\" | grep -qE '200|302|401'; then echo \"[$(date '+%H:%M:%S')] 重启后健康 HTTP \$code\" >> $LOG; echo \"## 结果：✅ 重启后健康（HTTP \$code）\" >> $REPORT; else echo \"[$(date '+%H:%M:%S')] ❌ 重启后不健康 HTTP \$code\" >> $LOG; echo \"## 结果：❌ 重启后不健康（HTTP \$code）—— 需回滚 \$SNAP\" >> $REPORT; fi" > /dev/null 2>&1 &
+        nohup bash -c "sleep 15; code=\$(curl -s -m 5 -o /dev/null -w '%{http_code}' http://127.0.0.1:3080 2>/dev/null); if echo \"\$code\" | grep -qE '200|302|401'; then echo \"[$(date '+%H:%M:%S')] 重启后健康 HTTP \$code\" >> $LOG; echo \"## 结果：✅ 重启后健康（HTTP \${code}）\" >> $REPORT; else echo \"[$(date '+%H:%M:%S')] ❌ 重启后不健康 HTTP \$code\" >> $LOG; echo \"## 结果：❌ 重启后不健康（HTTP \${code}）—— 需回滚 \$SNAP\" >> $REPORT; fi" > /dev/null 2>&1 &
     else
         log "🔄 重启 dsh web..."
         launchctl kickstart -k "gui/$(id -u)/$LABEL"
@@ -188,10 +188,10 @@ if [[ -n "$(ls "$SNAP" 2>/dev/null)" ]]; then
         code=$(curl -s -m 5 -o /dev/null -w "%{http_code}" http://127.0.0.1:3080 2>/dev/null)
         if [[ "$code" =~ ^(200|302|401)$ ]]; then
             log "✅ dsh web 健康 (HTTP $code)"
-            report_append "## 结果：✅ dsh web 健康（HTTP $code）"
+            report_append "## 结果：✅ dsh web 健康（HTTP ${code}）"
         else
             log "❌ dsh web 不健康 (HTTP $code)"
-            report_append "## 结果：❌ dsh web 不健康（HTTP $code），已回滚"
+            report_append "## 结果：❌ dsh web 不健康（HTTP ${code}），已回滚"
             # 回滚 package.json + lockfile
             cp "$SNAP/package.json" "$PROFILE/" 2>/dev/null
             cp "$SNAP/pnpm-lock.yaml" "$PROFILE/" 2>/dev/null
