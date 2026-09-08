@@ -138,8 +138,16 @@ cp "$PROFILE/package.json" "$PROFILE/pnpm-lock.yaml" "$SNAP/" 2>/dev/null
 log "📸 快照: $SNAP"
 
 report_append "## 更新明细"
+# 预读全部待更新行到数组（避免 while-read 与函数内 stdin 竞争导致变量丢失）
+UPDATES=()
 while IFS=$'\t' read -r PKG OLD NEW; do
     [[ "$PKG" == \#* || -z "$PKG" || -z "$NEW" ]] && continue
+    UPDATES+=("$PKG|$OLD|$NEW")
+done < /tmp/dsh-pending.txt
+rm -f /tmp/dsh-pending.txt
+
+for ENTRY in "${UPDATES[@]}"; do
+    IFS='|' read -r PKG OLD NEW <<< "$ENTRY"
     CAND="$PKG@$NEW"
     if [[ "$MODE" == "--auto" ]]; then
         if staging_test "$CAND"; then
@@ -161,8 +169,7 @@ while IFS=$'\t' read -r PKG OLD NEW; do
             report_append "- ⏭️ $PKG: $OLD → $NEW（用户跳过）"
         fi
     fi
-done < /tmp/dsh-pending.txt
-rm -f /tmp/dsh-pending.txt
+done
 report_append ""
 
 # 重启正式实例 + 健康检查
