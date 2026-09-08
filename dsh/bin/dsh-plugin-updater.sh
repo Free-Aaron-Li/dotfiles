@@ -152,21 +152,21 @@ for ENTRY in "${UPDATES[@]}"; do
     if [[ "$MODE" == "--auto" ]]; then
         if staging_test "$CAND"; then
             if apply "$CAND"; then
-                report_append "- ✅ $PKG: $OLD → $NEW（隔离测试通过）"
+                report_append "- ✅ $PKG: $OLD → ${NEW}（隔离测试通过）"
             else
-                report_append "- ❌ $PKG: $OLD → $NEW（正式更新失败）"
+                report_append "- ❌ $PKG: $OLD → ${NEW}（正式更新失败）"
             fi
         else
-            report_append "- ⚠️ $PKG: $OLD → $NEW（隔离测试未过，跳过）"
+            report_append "- ⚠️ $PKG: $OLD → ${NEW}（隔离测试未过，跳过）"
         fi
     else
         echo -n "  更新 $CAND ? [y/N] "; read -r ans
         if [[ "$ans" =~ ^[yY] ]]; then
             staging_test "$CAND" && apply "$CAND"
-            report_append "- ✅ $PKG: $OLD → $NEW（已确认更新）"
+            report_append "- ✅ $PKG: $OLD → ${NEW}（已确认更新）"
         else
             log "   ↪ 跳过"
-            report_append "- ⏭️ $PKG: $OLD → $NEW（用户跳过）"
+            report_append "- ⏭️ $PKG: $OLD → ${NEW}（用户跳过）"
         fi
     fi
 done
