@@ -1,8 +1,42 @@
-# node 
+# ============================================================
+# 提交卫生基线（2026-09-11，规范见 ~/.agents/skills/git-commit-hygiene）
+# 原则：能由源码/配置重新生成的、只对某台机器本次会话有意义的 → 不提交
+# ============================================================
+
+# ---- OS 垃圾 ----
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+
+# ---- 编辑器 / IDE 本地态 ----
+*.swp
+*.swo
+*~
+.idea/
+
+# ---- 语言 / 构建产物 ----
 **/node_modules
 package-lock.json
 package.json
+__pycache__/
+*.pyc
+.venv/
+dist/
+build/
+target/
+*.o
+*.dSYM/
 
+# ---- 运行产物 ----
+*.log
+*.pid
+*.tmp
 
-# macOS
-.DS_Store
+# ---- 临时与备份 ----
+*.bak
+*.orig
+*.rej
+*.old
