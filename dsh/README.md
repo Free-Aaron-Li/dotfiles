@@ -9,13 +9,17 @@
 ```
 ~/.files/dsh/
 ├── README.md            ← 本文件（统一规划与索引）
-├── bin/                 ← 全部可执行脚本（真实文件）
-│   ├── dsh-web.sh           dsh web 启动包装（launchd 托管用）
-│   ├── dsh-web-migrate.sh   nohup → launchd 一键迁移脚本
-│   ├── dsh-plugin-updater.sh  插件安全自动更新管线（dp-update）
-│   ├── dsh-remote-fwd.py    easytier 虚拟 IP → 本机 3080 转发器
-│   └── hindsight-daemon.sh  Hindsight daemon 启动包装
-└── (plists/ 可扩展：launchd 配置模板的 git 化副本)
+├── bin/                 ← 全部可执行脚本（真实文件，共 9 个）
+│   ├── dsh-web.sh                 dsh web 启动包装（launchd 托管 + 启动前自动升级）
+│   ├── dsh-web-migrate.sh         nohup → launchd 一键迁移脚本
+│   ├── dsh-plugin-updater.sh      插件更新管线（dp-update；--check/--auto）
+│   ├── dsh-upgrade.sh             DSH 本体升级脚本
+│   ├── dsh-remote-fwd.py          easytier 虚拟 IP → 本机 3080 转发器
+│   ├── hindsight-daemon.sh        Hindsight daemon 启动包装
+│   ├── daily-routine-check.sh     每日例行检查（11:30/21:00）
+│   ├── mole-maintain.sh           mole 系统维护（清理/优化/健康）
+│   └── easytier-autostart-install.sh  easytier LaunchDaemon 自启安装
+└── plists/              ← launchd 配置模板（git 化副本，共 8 个）
 ```
 
 ## 软链接约定
@@ -29,6 +33,9 @@
 | `bin/dsh-plugin-updater.sh` | `~/.local/bin/dsh-plugin-updater.sh` | launchd `com.user.dsh-plugin-updater` + zsh `dp-update` |
 | `bin/dsh-remote-fwd.py` | `~/.local/bin/dsh-remote-fwd.py` | launchd `com.user.dsh-remote-fwd` + zsh `fwd-start` |
 | `bin/hindsight-daemon.sh` | `~/.local/bin/hindsight-daemon.sh` | launchd `com.user.hindsight.daemon` |
+| `bin/daily-routine-check.sh` | `~/.local/bin/daily-routine-check` | launchd `com.user.daily-routine` |
+| `bin/mole-maintain.sh` | `~/.local/bin/mole-maintain` | launchd `com.user.mole-maintain` |
+| `bin/dsh-upgrade.sh` | `~/.local/bin/dsh-upgrade` | 手动 |
 
 > `~/.local/bin` 在 PATH 中（zshrc 第 77 行）。launchd 与 zsh 均跟随软链，
 > 指向不变，因此**移动真实文件不影响任何已配置服务**。
@@ -39,10 +46,12 @@
 | LaunchAgent | 脚本 | 调度/策略 | 说明 |
 |---|---|---|---|
 | `com.user.dsh-web` | `dsh-web.sh` | RunAtLoad + KeepAlive | dsh web 完全后台（ghostty 退出无影响）|
-| `com.user.dsh-plugin-updater` | `dsh-plugin-updater.sh --auto` | 每日 03:00 | 插件安全自动更新（隔离测试→更新→回滚）|
+| `com.user.dsh-plugin-updater` | `dsh-plugin-updater.sh --check` | 每日 03:00 | **仅检测**并写报告（09-05 用户决策：更新改为手动 `dp-update`）|
 | `com.user.dsh-remote-fwd` | `dsh-remote-fwd.py` | RunAtLoad + KeepAlive | 10.10.10.22:3080 → 127.0.0.1:3080 |
 | `com.user.hindsight.daemon` | `hindsight-daemon.sh` | RunAtLoad + KeepAlive | Hindsight API（端口 9077）|
 | `com.user.ollama.serve` | （ollama 二进制） | RunAtLoad + KeepAlive | 本地 ollama |
+| `com.user.daily-routine` | `daily-routine-check.sh` | 每日 11:30 / 21:00 | 例行检查（总结缺失/插件报告/Hindsight 监测/重启提醒）|
+| `com.user.mole-maintain` | `mole-maintain.sh full` | 周日 04:00 | mole 清理/优化/健康报告 |
 
 ## 用户命令速查（zsh 函数，定义在 ~/.zshrc）
 
@@ -62,6 +71,9 @@
 | 更新管线日志 | `/tmp/dsh-plugin-updater.log` |
 | dsh-config-manager | `~/.dsh/dsh-config-manager/`（备份 exports/snapshots/vault）|
 | Hindsight 配置 | `~/.hindsight/profiles/coding-agent.env` |
+
+> 📁 **归档层**（2026-09-10 建立）：`~/env/dsh/` —— 软链 + 文档构成的全局索引，
+> 覆盖本机与游戏本全部 DSH 配置、脚本、服务，换机恢复步骤见其 `docs/09-recovery.md`。
 
 ## 相关文档
 

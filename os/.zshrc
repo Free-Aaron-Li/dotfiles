@@ -29,7 +29,8 @@ export VCPKG_OVERLAY_TRIPLETS="$HOME/.vcpkg-overlay-triplets"
 ## 1.11 Qt
 export QT_ROOT="$HOME/env/qt/6.11.2/macos"
 ## 1.12 deepseek harness
-export MINERU_API_KEY='sk-REMOVED-BY-PURGE'
+# 密钥外置到加密卷（2026-09-10，规则见 ~/.agents/skills/secrets-keys-volume）
+[ -r /Volumes/keys/dsh/shell-secrets.env ] && source /Volumes/keys/dsh/shell-secrets.env
 ## 1.13 pip venv
 source /Users/lijc/env/.venv/bin/activate
 export PATH=/Users/lijc/env/.venv/bin:$PATH
@@ -94,6 +95,8 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
+## 6. easytier
+export PATH="/Users/lijc/Applications/easytier:$PATH"
 
 ####################
 ##### FUNCTION #####
@@ -353,7 +356,6 @@ function easytier-restart() {
 ##########################################################
 # Hindsight 本地 daemon LLM 配置（DeepSeek）——2026-08-30 配置
 export HINDSIGHT_API_LLM_PROVIDER=deepseek
-export HINDSIGHT_API_LLM_API_KEY=sk-REMOVED-BY-PURGE
 
 ##########################################################
 # 在 ~/.zshrc 中定义虚拟环境路径（根据你的实际路径修改）

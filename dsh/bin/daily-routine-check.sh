@@ -82,6 +82,28 @@ else
     echo "- ✅ 系统运行健康：uptime ${UPTIME_DAYS} 天，WindowServer ${WS_CPU:-?}% CPU" >> "$ROUTINE"
 fi
 
+# 🔐 密钥轮换到期检查（2026-09-10 加：60 天周期，状态见 security-rotation.json）
+ROT_STATE="$HOME/env/dsh/security-rotation.json"
+if [[ -f "$ROT_STATE" ]]; then
+    python3 - "$ROT_STATE" <<'PYEOF' >> "$ROUTINE"
+import json, sys
+from datetime import date
+try:
+    d = json.load(open(sys.argv[1]))
+    nxt = date.fromisoformat(d["next_due"])
+    left = (nxt - date.today()).days
+    n = len(d.get("items", []))
+    if left < 0:
+        print(f"- 🚨 **密钥轮换已逾期 {abs(left)} 天**（应于 {nxt} 执行，共 {n} 项）→ 立即 `rotate-credential.py list`")
+    elif left <= 14:
+        print(f"- ⚠️ 密钥轮换临近：还剩 {left} 天（{nxt} 到期，共 {n} 项）→ 提前安排")
+    else:
+        print(f"- ✅ 密钥轮换：{nxt} 到期（还剩 {left} 天，共 {n} 项）")
+except Exception as e:
+    print(f"- ⚠️ 密钥轮换状态读取失败：{e}")
+PYEOF
+fi
+
 echo "" >> "$ROUTINE"
 echo "## 🤖 Hindsight 本地 AI 监测" >> "$ROUTINE"
 
