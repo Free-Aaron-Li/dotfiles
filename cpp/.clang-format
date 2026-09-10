@@ -1,17 +1,21 @@
----
 Language: Cpp
 BasedOnStyle: Google
 AccessModifierOffset: -4
-AlignConsecutiveAssignments: false
-AlignConsecutiveDeclarations: false
-AlignOperands: true
-AlignTrailingComments: false
-AllowShortBlocksOnASingleLine: Always
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignOperands: Align
+AlignTrailingComments: true
+ReflowComments: true
+PenaltyExcessCharacter: 100
+AllowShortBlocksOnASingleLine: Never
+AllowShortIfStatementsOnASingleLine: false
+AllowShortLoopsOnASingleLine: true
 AllowShortCaseLabelsOnASingleLine: true
-AllowShortFunctionsOnASingleLine: None
-AllowShortIfStatementsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: All
 AlwaysBreakAfterDefinitionReturnType: All
-BraceWrapping: 
+AlwaysBreakAfterReturnType: None
+AlwaysBreakTemplateDeclarations: Yes
+BraceWrapping:
   AfterCaseLabel: false
   AfterClass: false
   AfterControlStatement: false
@@ -28,16 +32,15 @@ BraceWrapping:
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
-BreakBeforeBinaryOperators: NonAssignment
 BreakBeforeBraces: Custom
+BreakBeforeBinaryOperators: All
 BreakConstructorInitializers: AfterColon
 BreakConstructorInitializersBeforeComma: false
-CommentPragmas: ^.*NOTE:.*$
+ColumnLimit: 80
 ConstructorInitializerAllOnOneLineOrOnePerLine: false
-ContinuationIndentWidth: 8
+ContinuationIndentWidth: 10
 Cpp11BracedListStyle: false
-IncludeBlocks: Preserve
-IncludeCategories: 
+IncludeCategories:
   - Regex: '^<.*'
     Priority: 1
   - Regex: '^".*'
@@ -45,21 +48,22 @@ IncludeCategories:
   - Regex: '.*'
     Priority: 3
 IncludeIsMainRegex: '([-_](test|unittest))?$'
+IndentCaseLabels: true
 IndentWidth: 4
+KeepEmptyLinesAtTheStartOfBlocks: true
 InsertNewlineAtEOF: true
 MacroBlockBegin: ''
 MacroBlockEnd: ''
 MaxEmptyLinesToKeep: 2
 NamespaceIndentation: All
-PointerAlignment: Right
+SeparateDefinitionBlocks: Always
 SpaceAfterCStyleCast: true
 SpaceAfterTemplateKeyword: false
 SpaceBeforeRangeBasedForLoopColon: false
 SpaceInEmptyParentheses: false
-SpacesBeforeTrailingComments: 1
 SpacesInAngles: false
 SpacesInConditionalStatement: false
 SpacesInCStyleCastParentheses: false
 SpacesInParentheses: false
 TabWidth: 4
-...
+BreakStringLiterals: true
