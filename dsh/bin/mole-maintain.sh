@@ -49,7 +49,7 @@ health() {
     rep ""
     rep "## 健康状态（$(date '+%H:%M')）"
     rep ""
-    rep "- **健康分：$score / 100（$msg）**"
+    rep "- **健康分：${score} / 100（${msg}）**"
     rep "- CPU: ${cpu}% | 内存: ${mem}% | 磁盘: ${disk}%（可清理 ${purge}GB）"
     rep ""
     # 瓶颈提示（top process）

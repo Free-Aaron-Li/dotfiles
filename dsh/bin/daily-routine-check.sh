@@ -188,7 +188,7 @@ try:
 except Exception: pass
 " 2>/dev/null)
 if [[ -n "$DS_TODAY" ]]; then
-    echo "- 📊 最近统计：$DS_TODAY（input tokens，deepseek 大头；应随节流下降）" >> "$ROUTINE"
+    echo "- 📊 最近统计：${DS_TODAY}（input tokens，deepseek 大头；应随节流下降）" >> "$ROUTINE"
 fi
 
 # 5. 二进制存在性（防 uv cache 被清事故重演）

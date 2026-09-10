@@ -18,10 +18,10 @@ auto_upgrade() {
     CURRENT=$(python3 -c "import json; print(json.load(open('/opt/homebrew/lib/node_modules/@deepseek-ai/dsh/package.json'))['version'])" 2>/dev/null)
     LATEST=$(curl -s -m 8 "https://registry.npmjs.org/@deepseek-ai/dsh/latest" 2>/dev/null | python3 -c "import sys,json; print(json.load(sys.stdin).get('version',''))" 2>/dev/null)
     if [[ -z "$LATEST" || "$LATEST" == "$CURRENT" ]]; then
-        log "版本检查: 当前 $CURRENT 已最新（latest=$LATEST）"
+        log "版本检查: 当前 $CURRENT 已最新（latest=${LATEST}）"
         return 0
     fi
-    log "发现新版: $CURRENT -> $LATEST，自动升级..."
+    log "发现新版: ${CURRENT} -> ${LATEST}，自动升级..."
     mkdir -p "$HOME/.npm-upgrade-cache"
     if npm install -g "@deepseek-ai/dsh@$LATEST" --cache "$HOME/.npm-upgrade-cache" >> "$LOG" 2>&1; then
         log "升级成功 -> $LATEST"
