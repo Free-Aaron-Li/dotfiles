@@ -63,7 +63,7 @@ alias z='cd'
 alias nn='sudo xattr -cr '
 ## 6. open awesome-cpp web
 alias ac0='open /Users/lijc/source/cpp/awesome-cpp/doxygen/html/index.html'
-alias ac1='open /Users/lijc/source/qt/ecas/doxygen/html/index.html'
+alias ac1='open /Users/lijc/env/harness/doxygen/html/index.html'
 ## 7. copy source
 alias copy_source='~/.files/script/copy_source.sh'
 ## 8. tre
