@@ -42,24 +42,48 @@ detect() {
     log "🔍 检测插件新版本..."
     > /tmp/dsh-pending.txt
     python3 - "$PROFILE/package.json" <<'PY' >> /tmp/dsh-pending.txt
-import json, re, sys, urllib.request
+import json, re, sys, time, urllib.request
 d = json.load(open(sys.argv[1]))['dependencies']
+fails = []
 for k, v in sorted(d.items()):
     if not re.match(r'^(@[^/]+/)?(dsh|@deepseek-ai/dsh|dshmarket|dsh-)', k): continue
     ver = v.lstrip('^~>=<v')
     if ver.startswith(('git', 'http')): continue
-    try:
-        req = urllib.request.Request(f"https://registry.npmjs.org/{k.replace('/', '%2F')}/latest", headers={'User-Agent':'dsh-updater'})
-        latest = json.load(urllib.request.urlopen(req, timeout=8))['version']
-        if latest != ver:
-            print(f"{k}\t{ver}\t{latest}")
-    except Exception as e:
-        print(f"# ERR {k}: {e}", file=sys.stderr)
+    latest, err = None, None
+    for attempt in range(3):          # 注册表查询重试（8s / 16s / 24s + 退避）
+        try:
+            req = urllib.request.Request(f"https://registry.npmjs.org/{k.replace('/', '%2F')}/latest", headers={'User-Agent':'dsh-updater'})
+            latest = json.load(urllib.request.urlopen(req, timeout=8 + attempt * 8))['version']
+            break
+        except Exception as e:
+            err = e
+            if attempt < 2: time.sleep(1.5 * (attempt + 1))
+    if latest is None:
+        fails.append((k, str(err)))
+        print(f"# ERR {k}: 重试 3 次仍失败 - {err}", file=sys.stderr)
+        continue
+    if latest != ver:
+        print(f"{k}\t{ver}\t{latest}")
+with open('/tmp/dsh-detect-fails.txt', 'w') as fh:
+    for k, e in fails:
+        fh.write(f"{k}\t{e}\n")
 PY
     n=$(grep -vc '^#' /tmp/dsh-pending.txt 2>/dev/null || true)
     n=$(echo "$n" | tr -dc '0-9')
-    if [[ -z "$n" || "$n" -eq 0 ]]; then log "✅ 全部插件已是最新"; return 1; fi
+    fails=$(wc -l < /tmp/dsh-detect-fails.txt 2>/dev/null | tr -dc '0-9'); fails=${fails:-0}
+    if [[ -z "$n" || "$n" -eq 0 ]]; then
+        if [[ "$fails" -gt 0 ]]; then
+            log "✅ 无待更新插件（⚠️ 但 $fails 个包注册表查询失败，未验证）"
+            report_append ""
+            report_append "## ⚠️ 未验证（查询失败 $fails 个，已重试 3 次）"
+            while IFS=$'\t' read -r pkg _; do [[ -n "$pkg" ]] && report_append "- $pkg"; done < /tmp/dsh-detect-fails.txt
+        else
+            log "✅ 全部插件已是最新"
+        fi
+        return 1
+    fi
     log "发现 $n 个可更新："
+    [[ "$fails" -gt 0 ]] && log "   ⚠️ 另有 $fails 个包查询失败（未验证，见 /tmp/dsh-detect-fails.txt）"
     awk -F'\t' '{printf "   %s: %s → %s\n", $1, $2, $3}' /tmp/dsh-pending.txt | tee -a "$LOG"
     return 0
 }
