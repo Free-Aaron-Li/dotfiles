@@ -2,13 +2,17 @@
 # ============================================================
 # 每日例行检查：总结缺失检测 + 报告状态 —— 2026-09-05
 # 用户全局约定：每天 11:30 总结昨日/当日 → 全局记忆 → 滴答梳理
+#              总结成品位置（2026-09-11 起）：~/env/dsh/summaries/YYYY-MM/YYYY-MM-DD.md
 #              每天首个会话汇报（插件更新 + mole + 总结状态）
 # 机制：launchd 11:30 运行本脚本 → 生成 ~/.dsh/daily-routine.md
 #      （含：昨日总结缺失? 今日已总结? 插件/mole 报告状态）
 #      每次会话开始 agent 读 daily-routine.md + 各 pending 标记 → 汇报
 # ============================================================
 set -uo pipefail
-MEM_DIR="$HOME/source/qt/ecas/.memsearch/memory"
+# 总结留痕位置（2026-09-11 起）：成品总结 = ~/env/dsh/summaries/YYYY-MM/YYYY-MM-DD.md
+SUM_DIR="$HOME/env/dsh/summaries"
+# 工作区原始记忆（回退口径）
+MEM_DIRS=("$HOME/env/harness/.memsearch/memory" "$HOME/env/life/.memsearch/memory")
 ROUTINE="$HOME/.dsh/daily-routine.md"
 TODAY=$(date '+%Y-%m-%d')
 YESTERDAY=$(date -v-1d '+%Y-%m-%d' 2>/dev/null || date -d yesterday '+%Y-%m-%d' 2>/dev/null || date '+%Y-%m-%d')
@@ -20,17 +24,25 @@ NOW=$(date '+%H:%M')
     echo "## 📝 总结状态"
 } > "$ROUTINE"
 
+# 总结判定：新位置成品文件优先，回退到工作区记忆 + 段标记（兼容历史）
+has_summary() {
+    local day="$1" d
+    [[ -f "$SUM_DIR/${day:0:7}/$day.md" ]] && return 0
+    for d in "${MEM_DIRS[@]}"; do
+        [[ -f "$d/$day.md" ]] && grep -qE "工作总结|每日总结|每日工作归档" "$d/$day.md" 2>/dev/null && return 0
+    done
+    return 1
+}
+
 # 昨日总结检查
-YFILE="$MEM_DIR/$YESTERDAY.md"
-if [[ -f "$YFILE" ]] && grep -q "工作总结" "$YFILE" 2>/dev/null; then
+if has_summary "$YESTERDAY"; then
     echo "- ✅ 昨日($YESTERDAY)总结：已归档" >> "$ROUTINE"
 else
     echo "- ⚠️ 昨日($YESTERDAY)总结：**缺失** → 需补录" >> "$ROUTINE"
 fi
 
 # 今日是否已有总结（晚间重复运行防重复）
-TFILE="$MEM_DIR/$TODAY.md"
-if [[ -f "$TFILE" ]] && grep -q "工作总结" "$TFILE" 2>/dev/null; then
+if has_summary "$TODAY"; then
     echo "- ✅ 今日($TODAY)总结：已有（晚间收尾时更新即可）" >> "$ROUTINE"
 else
     echo "- ⏳ 今日($TODAY)总结：未做（晚间 21:00 例行提醒）" >> "$ROUTINE"
